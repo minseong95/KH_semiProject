@@ -53,7 +53,8 @@ public class BoardDao {
 	//게시글 상세 보기
 	public ArrayList<BoardVo> boardDetail(Connection conn){
 		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
-		String sql ="SELECT writer, subject, context, createdate FROM BOARD_TABLE WHERE idx=?";
+		String sql ="SELECT writer, subject, context, createdate ";
+		       sql += " FROM BOARD_TABLE WHERE idx=?";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
