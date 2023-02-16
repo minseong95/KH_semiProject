@@ -11,7 +11,7 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
+#*.jar 주석처리함
 *.war
 *.nar
 *.ear
