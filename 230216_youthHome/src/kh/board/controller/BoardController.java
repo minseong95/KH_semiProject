@@ -1,6 +1,8 @@
 package kh.board.controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +30,20 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("board", new BoardService().boardShow());
+		String pageNumber = request.getParameter("p");//pNum은 사용자가 요청한 현재페이지..
+		int pNum;
+		if(pageNumber == null || pageNumber.isEmpty()) {
+			pNum = 1;
+		}else {
+			pNum = Integer.parseInt(pageNumber);
+		}
+		//이 pNum을 여태 만든 메서드들에게 인자로 넘겨줘야 해.. 
+		request.setAttribute("selectList",new BoardService().selectPage(pNum));
+		request.setAttribute("board", new BoardService().boardShow());//아 이건 지워도됨 페이지처리때문에.. 
+		
+		List<Integer>pageList = new BoardService().getPageList();
+		request.setAttribute("pageList", pageList);
+		
 		request.getRequestDispatcher("WEB-INF/view/board.jsp").forward(request, response);
 	}
 

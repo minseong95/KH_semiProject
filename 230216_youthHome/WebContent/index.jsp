@@ -5,8 +5,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+ <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
  서버 확인용 페이지
+ <div class="container text-center">
+  <div class="row" border="1">
+    <div class="col">
+      Column
+    </div>
+    <div class="col">
+      Column
+    </div>
+    <div class="col">
+      Column
+    </div>
+  </div>
+</div>
 </body>
 </html>
