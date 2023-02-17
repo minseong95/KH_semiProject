@@ -41,5 +41,35 @@ public class MemberDao {
 			return result;
 			
 		}
+		
+		// 회원가입-> insert -> insert의 결과물은 int로 리턴함. 그럼 매개인자는?
+		public int enroll(Connection conn, MemberVo vo) { //매개인자를 여러개 담을 수 있는 그릇이 있지.. MemberVo
+			int result = -1;
+			String query = "insert into test_member values"; // 강사님은 쿼리문부터 생각한다 하심.. 
+			query+=" (?,?,?,?)"; // 쿼리문 너무 길어진다 싶으면 이렇게 분리를 해서.. 
+			
+			PreparedStatement  pstmt = null; 
+			//여기서 ResultSet은 필요없지
+			try {
+				pstmt = conn.prepareStatement(query);
+				// ? 채워주기(위치홀더)
+				pstmt.setString(1, vo.getId()); 
+				pstmt.setString(2, vo.getPasswd());
+				pstmt.setString(3, vo.getName());
+				pstmt.setString(4, vo.getEmail());
+				// pstmt 실행
+				// 결과값 result에 대입
+				result = pstmt.executeUpdate();  //execute: 실행하다.. 갑분영단어.. 잘외우라고.. 
+				
+				
+			} catch (Exception e) { //Exception으로 퉁쳐도되고 SQLException으로 써도 되고.. 
+				e.printStackTrace();
+			} //try 블럭 미리 만들어서 써도 괜춚
+			 finally {
+				 close(pstmt);
+			 }
+			System.out.println("DAO enroll return : "+result); //오류 확인을 위해 이렇게 syso 뿌려놓기.. 
+			return result;
+		}
 
 }

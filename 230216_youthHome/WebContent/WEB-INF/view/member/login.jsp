@@ -21,6 +21,15 @@
 	</div>
 	<button type="submit">로그인하기</button>
 	<button type="button" class="btn enroll">회원가입</button>
+	
+	<script>
+		$(".btn.enroll").on("click", handlerClickBtnEnroll);
+		
+		function handlerClickBtnEnroll(){
+			console.log("btnEnroll누름");
+			location.href="<%=request.getContextPath()%>/enroll";			
+		}
+	</script>
 </form>	
 
 </body>

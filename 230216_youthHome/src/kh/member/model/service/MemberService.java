@@ -18,4 +18,13 @@ public class MemberService {
 			return result; 
 		}
 		
+		// 회원가입
+		public int enroll(MemberVo vo) { 
+			int result = -1;
+			Connection conn = getConnection(); //jdbc에서 getConnection 하면 오토커밋됨. 그렇게 설정했으니.. 
+			result = new MemberDao().enroll(conn, vo);
+			close(conn);
+			return result;
+			}
+		
 }
