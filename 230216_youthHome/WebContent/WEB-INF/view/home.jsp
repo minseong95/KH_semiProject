@@ -7,7 +7,7 @@
 <title>메인페이지</title>
 </head>
 <body>
-메인임..
+<jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
 
 </body>
 </html>

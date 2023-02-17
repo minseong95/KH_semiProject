@@ -97,4 +97,35 @@ public class MemberDao {
 			return result;
 		}
 
+		
+		//내정보보기
+		public MemberVo myInfo(Connection conn, String id) {
+			MemberVo result = null;
+			String sql = "select ID, NAME, EMAIL from member_table";
+			sql += " where ID =?"; // 연결자 쓰면 항상 띄어쓰기 해야함. 단어가 붙으면 안되잖아.. 
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				pstmt= conn.prepareStatement(sql); //conn으로부터 
+				pstmt.setString(1, id);
+				rs = pstmt.executeQuery();    // 지겹다할 때까지 작성할 것
+				//where 절에 pk키가 있는걸 ? 에 넣으면 단일행이 나옴 무조건!!!!(id)
+				//그래서 반복 안하고 그냥 if 쓰면 됨
+				if(rs.next()) {
+					result = new MemberVo(); //new 해야 만들 수 있지.. 
+					result.setEmail(rs.getString("email"));
+					result.setId(rs.getString("id"));
+					result.setName(rs.getString("name")); //MemberVo에 다시 채우는거야 
+				}
+				
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally { // 파이널리 블록도 반드시 생성해줄 것.
+				close(rs);
+				close(pstmt);
+			}
+
+			return result;
+		}
 }

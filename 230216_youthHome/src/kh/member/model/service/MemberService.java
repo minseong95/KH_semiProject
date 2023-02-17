@@ -35,5 +35,15 @@ public class MemberService {
 			//System.out.println(result); 얘도 1
 			close(conn);
 			return result;
-}
+			
+			
+		}
+		
+		public MemberVo myInfo (String id) {//MemberVo vo 들고와야지
+			MemberVo result = null;
+			Connection conn =getConnection();
+			result = new MemberDao().myInfo(conn, id);
+			close(conn);
+			return result; // 연습해라...
+		}
 }
