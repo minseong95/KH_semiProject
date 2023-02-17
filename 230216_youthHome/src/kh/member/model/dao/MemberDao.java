@@ -71,5 +71,30 @@ public class MemberDao {
 			System.out.println("DAO enroll return : "+result); //오류 확인을 위해 이렇게 syso 뿌려놓기.. 
 			return result;
 		}
+		
+		//id 중복체크
+		public int dupIdChk(Connection conn, String id) {
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			int result = 0;
+			//id로 테이블을 조회, 있으면 1 이상, 없으면 0
+			String sql = "select count(*) from member_table where ID=?";
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, id);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					result =rs.getInt(1); //rs의 첫 컬럼의 숫자값을 가져옴
+					//System.out.println(result);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			//System.out.println(result); 테이블에 있는 아이디 입력했을 때 1로 되는데..어디서 잘못된거지
+			return result;
+		}
 
 }

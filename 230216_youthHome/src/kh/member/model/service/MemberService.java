@@ -27,4 +27,13 @@ public class MemberService {
 			return result;
 			}
 		
+		
+		//아이디 중복체크
+		public int dupIdChk(String id) {
+			Connection conn =getConnection();
+			int result = new MemberDao().dupIdChk(conn, id);
+			//System.out.println(result); 얘도 1
+			close(conn);
+			return result;
+}
 }
