@@ -16,8 +16,8 @@ package kh.member.model.vo;
  * 흐름을 알 수 있게 그림으로 그려놓는 것도 괜찮아(화면설계서)
  */
 public class MemberVo {
-	//Entity에 가깝게 만든다. 
-//  desc test_member;
+
+//  desc member_table;
 //	------ -------- ------------ 
 //	ID     NOT NULL VARCHAR2(15) 
 //	PASSWD NOT NULL VARCHAR2(15) 

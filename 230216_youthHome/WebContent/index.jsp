@@ -10,18 +10,7 @@
 </head>
 <body>
  서버 확인용 페이지
- <div class="container text-center">
-  <div class="row" border="1">
-    <div class="col">
-      Column
-    </div>
-    <div class="col">
-      Column
-    </div>
-    <div class="col">
-      Column
-    </div>
-  </div>
-</div>
+ 
+ request.getContextPath()+/
 </body>
 </html>
