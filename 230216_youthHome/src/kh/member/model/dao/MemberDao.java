@@ -45,7 +45,7 @@ public class MemberDao {
 		// 회원가입-> insert -> insert의 결과물은 int로 리턴함. 그럼 매개인자는?
 		public int enroll(Connection conn, MemberVo vo) { //매개인자를 여러개 담을 수 있는 그릇이 있지.. MemberVo
 			int result = -1;
-			String query = "insert into test_member values"; // 강사님은 쿼리문부터 생각한다 하심.. 
+			String query = "insert into member_table values"; // 강사님은 쿼리문부터 생각한다 하심.. 
 			query+=" (?,?,?,?)"; // 쿼리문 너무 길어진다 싶으면 이렇게 분리를 해서.. 
 			
 			PreparedStatement  pstmt = null; 
