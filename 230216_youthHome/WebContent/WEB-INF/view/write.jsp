@@ -12,8 +12,8 @@
 </head>
 <body>
 글 작성 양식을 만들거야..
-	
-	<form action="<%=request.getContextPath() %>/board" method="post">
+	<!-- 어뭐야 왜 돼 왜?????/board에서 /write로 바꾸니까 돼는데????ㅅㅂ -->
+	<form action="<%=request.getContextPath() %>/write" method="post">
 		<div class="mb-4">
 		  <label for="exampleFormControlInput1" class="form-label">글 제목</label>
 		  <input type="text" class="form-control w-50" name="subject" id="exampleFormControlInput1" >
