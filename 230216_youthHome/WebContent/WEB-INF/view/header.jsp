@@ -8,18 +8,26 @@
 		<div>
 			<c:choose>
 				<c:when test="${empty lgnss }">
-					<button type="button" class="btn logout">로그아웃</button>		
+					<button type="button" class="btn login">로그인</button>
+					<button type="button" class="btn enroll">회원가입</button>		
 				</c:when>
 				<c:otherwise>
 					<button type="button"class="btn myinfo">마이페이지</button>
+					<button type="button" class="btn logout">로그아웃</button>
 				</c:otherwise>
 			</c:choose>
 		</div>
 		
 		<script>
+		$(".btn.login").on("click",handlerClickBtnLogin);
 		$(".btn.logout").on("click",handlerClickBtnLogout);
 		$(".btn.myinfo").on("click",handlerClickBtnMyinfo);
+		$(".btn.enroll").on("click",handlerClickBtnEnroll);
 		
+		function handlerClickBtnLogin(){
+			console.log("btnLogin 눌림");
+			location.href="<%=request.getContextPath()%>/login"; 
+		}
 		function handlerClickBtnLogout(){
 			console.log("btnLogout 눌림");
 			location.href="<%=request.getContextPath()%>/logout"; 
@@ -28,6 +36,11 @@
 		function handlerClickBtnMyinfo(){
 			console.log("btnmyinfo 눌림");
 			location.href="<%=request.getContextPath()%>/myinfo"; 
+		}
+		
+		function handlerClickBtnEnroll(){
+			console.log("btnEnroll 눌림");
+			location.href="<%=request.getContextPath()%>/enroll"; 
 		}
 		
 		</script>

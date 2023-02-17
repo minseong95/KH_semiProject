@@ -13,6 +13,8 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
+
 		<div class>
 			<nav class="navbar bg-light">
 			  <div class="container-fluid">
