@@ -30,6 +30,7 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//페이징
 		String pageNumber = request.getParameter("p");//pNum은 사용자가 요청한 현재페이지..
 		int pNum;
 		if(pageNumber == null || pageNumber.isEmpty()) {
@@ -43,6 +44,10 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 		
 		List<Integer>pageList = new BoardService().getPageList();
 		request.setAttribute("pageList", pageList);
+		
+		
+		
+		
 		
 		request.getRequestDispatcher("WEB-INF/view/board.jsp").forward(request, response);
 	}

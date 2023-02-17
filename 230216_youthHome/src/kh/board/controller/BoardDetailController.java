@@ -28,7 +28,19 @@ public class BoardDetailController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("detail", new BoardService().boardDetail());
+
+		
+		//상세 게시글 가기 위한..
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		//아 뭐여 이거 존나 쉽네
+		
+		
+		
+		
+		
+		
+		request.setAttribute("detail", new BoardService().boardDetail(id));
 		request.getRequestDispatcher("WEB-INF/view/boardDetail.jsp").forward(request, response);
 	}
 

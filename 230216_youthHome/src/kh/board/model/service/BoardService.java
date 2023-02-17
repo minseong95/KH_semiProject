@@ -18,10 +18,10 @@ public class BoardService {
 	
 	
 	//게시글 하나 보기
-	public ArrayList<BoardVo> boardDetail() {
+	public ArrayList<BoardVo> boardDetail(int id) {
 		ArrayList<BoardVo> list = null;
 		Connection conn = getConnection();
-		list = new BoardDao().boardDetail(conn);
+		list = new BoardDao().boardDetail(conn, id);
 		return list;
 	}
 	

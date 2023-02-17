@@ -51,7 +51,7 @@ public class BoardDao {
 	
 	
 	//게시글 상세 보기
-	public ArrayList<BoardVo> boardDetail(Connection conn){
+	public ArrayList<BoardVo> boardDetail(Connection conn, int id ){
 		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
 		String sql ="SELECT writer, subject, context, createdate ";
 		       sql += " FROM BOARD_TABLE WHERE idx=?";
@@ -60,7 +60,7 @@ public class BoardDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1,1); //getIdx를 어떻게 받지...?
+			pstmt.setInt(1,id); //getIdx를 어떻게 받지...?
 			rs = pstmt.executeQuery(); //ResultSet에 다 담기
 			
 			while(rs.next()) {

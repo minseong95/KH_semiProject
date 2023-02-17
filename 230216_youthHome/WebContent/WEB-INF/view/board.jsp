@@ -59,7 +59,7 @@
  			<tr>
 	 			<td><%=board.getIdx()%></td>
 	 			<td><%=board.getWriter()%></td>
-	 			<td><a href="<%=request.getContextPath()%>/boardDetail?n=<%=board.getIdx()%>"><%=board.getSubject()%></a></td>
+	 			<td><a href="<%=request.getContextPath()%>/boardDetail?id=<%=board.getIdx()%>"><%=board.getSubject()%></a></td>
 	 			<td><%=board.getCreatedate()%></td>
 	 			<td><%=board.getView_cnt()%></td>
  			</tr>
