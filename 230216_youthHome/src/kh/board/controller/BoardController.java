@@ -45,10 +45,7 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 		List<Integer>pageList = new BoardService().getPageList();
 		request.setAttribute("pageList", pageList);
 		
-		
-		
-		
-		
+
 		request.getRequestDispatcher("WEB-INF/view/board.jsp").forward(request, response);
 	}
 

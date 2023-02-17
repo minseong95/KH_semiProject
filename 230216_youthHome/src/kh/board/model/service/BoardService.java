@@ -1,6 +1,7 @@
 package kh.board.model.service;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,10 +51,19 @@ public class BoardService {
 	
 	
 	//글 작성해서 등록하기.. 아 안되네.. 
-	public ArrayList<BoardVo> write(){
-		ArrayList<BoardVo> list = null;
+	public boolean write(BoardVo vo){
+		int result = -1;
 		Connection conn = getConnection();
-		list = new BoardDao().write(conn);
-		return list;
+		result = new BoardDao().write(conn, vo);
+		if(result ==1) {
+			return true;
+		}
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
  }
 }

@@ -12,28 +12,30 @@
 </head>
 <body>
 글 작성 양식을 만들거야..
-	<div class="mb-4">
-	  <label for="exampleFormControlInput1" class="form-label">글 제목</label>
-	  <input type="email" class="form-control w-50" id="exampleFormControlInput1" placeholder="name@example.com">
-	</div>
 	
-	<div class="mb-3 row">
-    <label for="staticEmail" class="col-sm-2 col-form-label">작성자</label>
-    <div class="col-sm-10">
-      <input type="text" readonly class="form-control-plaintext w-25" id="staticEmail" value="유저1 값 가져와..">
-    </div>
-  </div>
+	<form action="<%=request.getContextPath() %>/board" method="post">
+		<div class="mb-4">
+		  <label for="exampleFormControlInput1" class="form-label">글 제목</label>
+		  <input type="text" class="form-control w-50" name="subject" id="exampleFormControlInput1" >
+		</div>
+		
+		<div class="mb-3 row">
+	    <label for="staticEmail" class="col-sm-2 col-form-label">작성자</label>
+	    <div class="col-sm-10">
+	      <input type="text" readonly class="form-control-plaintext w-25" id="staticEmail" value="유저1 값 가져와..">
+	    </div>
+	  </div>
+		
+		<div class="mb-3">
+		  <label for="exampleFormControlTextarea1" class="form-label">내용</label>
+		  <textarea class="form-control w-50" name="context" id="exampleFormControlTextarea1" rows="3"></textarea>
+		</div>
 	
-	<div class="mb-3">
-	  <label for="exampleFormControlTextarea1" class="form-label">내용</label>
-	  <textarea class="form-control w-50" id="exampleFormControlTextarea1" rows="3"></textarea>
-	</div>
-
-	<div class="col-auto">
-    	<button type="submit" class="btn write btn-primary mb-3">등록하기</button>
-  	</div>
-  
-  
+		<div class="col-auto">
+	    	<button type="submit" class="btn write btn-primary mb-3">등록하기</button>
+	  	</div>
+	  </form>
+	  
  
   			<script>
  				$(".btn.write").on("click", handlerClickBtnWrite);

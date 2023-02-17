@@ -3,6 +3,7 @@ package kh.board.model.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import kh.board.model.vo.BoardVo;
@@ -95,7 +96,7 @@ public class BoardDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1,(pNum-1)*5 +1); //임의로 5개 목록 수... 받아올라면 파라미터를 어떻게?
+			pstmt.setInt(1,(pNum-1)*5 +1); //임의로 5개 목록 수... 
 			pstmt.setInt(2, pNum*5); //여기서 5이 옵션으로 선택한다는 건데..
 			rs = pstmt.executeQuery(); //셀렉트니까.. 
 			
@@ -147,27 +148,58 @@ public class BoardDao {
 	
 	
 	// 글 작성해서 등록하는 과정.. 
-	public ArrayList<BoardVo> write(Connection conn){
-		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
-		BoardVo vo = new BoardVo();
+	public int write(Connection conn, BoardVo vo){
+		int result = -1; //실패하면 -1로 처리해야하니까
 		String sql = "INSERT INTO BOARD_TABLE VALUES";
-			   sql +="(BOARD_SEQ.NEXTVAL, ?, ?, ?, TO_CHAR(SYSDATE,'YYYY-MM-DD'), 0)";
-		
+			   sql +="(?, ?, ?, ?, TO_CHAR(SYSDATE,'YYYY-MM-DD'), 0)";
+			   //인서트문이니까..ㄴ
 			   PreparedStatement pstmt = null;
 			   
 			   try {
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, vo.getWriter() ); // 작성자가 뜬대.. 
-				pstmt.setString(2, vo.getSubject());
-				pstmt.setString(3, vo.getContext());
+				pstmt.setInt(1, new BoardDao().getNo(conn));
+				pstmt.setString(2, vo.getWriter() ); 
+				pstmt.setString(3, vo.getSubject());
+				pstmt.setString(4, vo.getContext());
 				
-				list.add(vo);
-				
+				result = pstmt.executeUpdate();
+				if(result>0) {
+					conn.commit();
+				}
 			} catch (Exception e) {
-				e.printStackTrace();
+				try {
+					conn.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 			} finally {
 				close(pstmt);
 			}
-			   return list;
+			   return result;
 	}
+	
+	// 최대 게시판 번호 알아내기
+		public int getNo(Connection conn) {
+			int result = 0;
+			String sql = "SELECT NVL(max(IDX), 0) + 1 FROM BOARD_TABLE";
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					return rs.getInt(1);
+				}
+				return 1;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			System.out.println(result);
+			return -1;
+		}
+	
+	
 }

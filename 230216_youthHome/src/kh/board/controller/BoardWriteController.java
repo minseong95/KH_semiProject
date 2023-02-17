@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kh.board.model.service.BoardService;
+import kh.board.model.vo.BoardVo;
 
 /**
  * Servlet implementation class BoardWriteController
@@ -23,19 +24,43 @@ public class BoardWriteController extends HttpServlet {
         super();
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("list", new BoardService().write());
-		request.getRequestDispatcher("/WEB-INF/view/write.jsp").forward(request, response);
-	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect(request.getContextPath()+"/board");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		BoardVo vo = new BoardVo();
+//		String context = request.getParameter("context");
+//		String subject = request.getParameter("subject");
+//		vo.setContext(context);
+//		vo.setSubject(subject);
+//		
+//		boolean result = new BoardService().write(vo);
+//		
+//		if(result) {
+//		response.sendRedirect(request.getContextPath()+"/board");
+//	} else {
+//		System.out.println("등록 실패");
+		//request.getRequestDispatcher("WEB-INF/view/fail.jsp").forward(request, response);
+	//}
+		request.getRequestDispatcher("WEB-INF/view/write.jsp").forward(request, response);
 	}
-
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		BoardVo vo = new BoardVo();
+		String context = request.getParameter("context");
+		String subject = request.getParameter("subject");
+		vo.setContext(context);
+		vo.setSubject(subject);
+		
+		boolean result = new BoardService().write(vo);
+		if(result) {
+		response.sendRedirect(request.getContextPath()+"/board");
+	} else {
+		System.out.println("등록 실패");
+		//request.getRequestDispatcher("WEB-INF/view/fail.jsp").forward(request, response);
+	}
+	}
 }
