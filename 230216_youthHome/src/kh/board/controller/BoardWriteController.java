@@ -44,7 +44,7 @@ public class BoardWriteController extends HttpServlet {
 //		System.out.println("등록 실패");
 		//request.getRequestDispatcher("WEB-INF/view/fail.jsp").forward(request, response);
 	//}
-		request.getRequestDispatcher("WEB-INF/view/write.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/view/board/write.jsp").forward(request, response);
 	}
 	
 	@Override
