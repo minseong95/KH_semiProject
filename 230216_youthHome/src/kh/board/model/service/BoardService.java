@@ -47,4 +47,13 @@ public class BoardService {
 		      }
 		      return pageList;
 		   }
+	
+	
+	//글 작성해서 등록하기.. 아 안되네.. 
+	public ArrayList<BoardVo> write(){
+		ArrayList<BoardVo> list = null;
+		Connection conn = getConnection();
+		list = new BoardDao().write(conn);
+		return list;
+ }
 }

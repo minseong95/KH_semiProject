@@ -10,6 +10,7 @@
 <title>자유게시판</title>
 <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
 		<div class>
@@ -96,11 +97,20 @@
  			
  			<!-- 글 작성하기 버튼 -->
  			<div align="right" class="mb-4">
- 				<button type="button" class="btn btn-secondary">글 작성하기</button>
+ 				<button type="button" class="btn write btn-secondary">글 작성하기</button>
  			</div>
  			
+ 			<!-- 누르면 작성하기 페이지로..  -->
+ 			<script>
+ 				$(".btn.write").on("click", handlerClickBtnWrite);
+ 				
+ 				function handlerClickBtnWrite(){
+ 					console.log("작성하기 버튼 누르기");
+ 					location.href="<%=request.getContextPath()%>/write"
+ 				}
  			
  			
+ 			</script>
  			
 		
 

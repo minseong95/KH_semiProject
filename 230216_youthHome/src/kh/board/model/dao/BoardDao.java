@@ -144,4 +144,30 @@ public class BoardDao {
 			
 		return count;
 	}
+	
+	
+	// 글 작성해서 등록하는 과정.. 
+	public ArrayList<BoardVo> write(Connection conn){
+		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
+		BoardVo vo = new BoardVo();
+		String sql = "INSERT INTO BOARD_TABLE VALUES";
+			   sql +="(BOARD_SEQ.NEXTVAL, ?, ?, ?, TO_CHAR(SYSDATE,'YYYY-MM-DD'), 0)";
+		
+			   PreparedStatement pstmt = null;
+			   
+			   try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, vo.getWriter() ); // 작성자가 뜬대.. 
+				pstmt.setString(2, vo.getSubject());
+				pstmt.setString(3, vo.getContext());
+				
+				list.add(vo);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			   return list;
+	}
 }
