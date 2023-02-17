@@ -9,8 +9,10 @@
  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
  서버 확인용 페이지
  
  request.getContextPath()+/
+ <a href="<%=request.getContextPath() %>/board">자유게시판</a>
 </body>
 </html>
