@@ -9,6 +9,7 @@
 <title>글 자세히 보기</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
 	<div>
 	게시판
 	</div>

@@ -11,6 +11,7 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
 글 작성 양식을 만들거야..
 	<!-- 어뭐야 왜 돼 왜?????/board에서 /write로 바꾸니까 돼는데????ㅅㅂ -->
 	<form action="<%=request.getContextPath() %>/write" method="post">
