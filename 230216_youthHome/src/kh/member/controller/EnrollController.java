@@ -53,6 +53,8 @@ public class EnrollController extends HttpServlet {
 			
 			if(result < 1) {
 				System.out.println("회원가입 실패");
+				request.setAttribute("msg","회원가입에 실패했습니다. 다시 시도해주세요." );
+				request.getRequestDispatcher("/WEB-INF/msgAlert.jsp").forward(request,response);
 			} else {
 				System.out.println("회원가입 성공");
 				response.sendRedirect(request.getContextPath()+"/"); //이렇게 해야 성공하면 홈으로 간다

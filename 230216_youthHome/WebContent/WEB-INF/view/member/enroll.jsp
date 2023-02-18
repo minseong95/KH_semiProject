@@ -5,27 +5,37 @@
 <head>
 <meta charset="UTF-8">
 <title>kh 회원가입</title>
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
 
 	<section>
 	<h1>회원가입</h1>
-		<form action="<%=request.getContextPath()%>/enroll" method="post"> <!-- 절대경로 -->
-			id:<input type="text" name="id"> 
-			<br>
-			<button type="button" id="dupId">중복 id 확인</button> <!-- 타입으로 '버튼'도 명시해야 함 -->
-	          <!-- 버튼이라고 안하면  submit 으로 인식함..?? -->
-			<span></span>
-			<br>
-			passwd:<input type="password" name="passwd">
-			<br>
-			name:<input type="text" name="name">
-			<br>
-			email:<input type="text" name="email">
-			<br>
-			<button type="submit">회원가입</button>
-		</form>
+	
+	<form action="<%=request.getContextPath()%>/enroll" method="post">
+		<div class="mb-3">
+	  		<label for="idInput" class="form-label">아이디</label>
+	  		<input type="text" class="form-control" id="idInput" name="id">
+	  		<button type="button" class="btn btn-outline-secondary" id="dupId">중복 id 확인</button>
+	  		<span></span>
+		</div>
+		<div class="mb-3">
+	  		<label for="psswdInput" class="form-label">비밀번호</label>
+	  		<input type="password" class="form-control" id="psswdInput" name="passwd" >
+		</div>
+		<div class="mb-3">
+	  		<label for="nameInput" class="form-label">이름</label>
+	  		<input type="text" class="form-control" id="nameInput"  name="name">
+		</div>
+		<div class="mb-3">
+	  		<label for="emailInput" class="form-label">이메일</label>
+	  		<input type="email" class="form-control" id="emailInput" name="email" >
+		</div>
+		<button type="submit" class="btn btn-secondary btn-lg">가입하기</button>
+	</form>
+	
 	</section>
 	
 		<!-- 중복체크 -->

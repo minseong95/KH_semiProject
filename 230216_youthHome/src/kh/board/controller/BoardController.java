@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kh.board.model.service.BoardService;
 
@@ -30,6 +31,12 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		HttpSession session = request.getSession();
+//		if(!session.getAttribute("lgnss").equals("result")) {
+//			response.sendRedirect(request.getContextPath()+"/login");
+//		}
+		
+		
 		//페이징
 		String pageNumber = request.getParameter("p");//pNum은 사용자가 요청한 현재페이지..
 		int pNum;

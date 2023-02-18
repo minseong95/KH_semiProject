@@ -18,6 +18,7 @@
 	<hr>
 	
 	${detail.writer}
+	${detail.context }
 	
 	<hr>
 	
@@ -28,6 +29,7 @@
     <button type="submit" form="deleteForm" class="btn delete">삭제</button>
     <form id="deleteForm" action="<%=request.getContextPath()%>/delete?id=<%=request.getAttribute("id")%>" method="post"></form>
     <!-- 삭제 될까..? -->
+  
     
     <script>
     $(".btn.list").on("click",handlerClickBtnList);
