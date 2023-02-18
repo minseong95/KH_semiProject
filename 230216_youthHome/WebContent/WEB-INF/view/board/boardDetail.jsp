@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>글 자세히 보기</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
@@ -15,11 +16,27 @@
 	</div>
 	
 	<ul>
- <% for(BoardVo detail : (ArrayList<BoardVo>)request.getAttribute("detail") ){ %>
-	<li><%=detail.getWriter() %> | <%=detail.getSubject() %>
-	     <%=detail.getContext() %> | <%=detail.getCreatedate() %>  </li>
- <%} %>
-</ul>
-
+	 <% for(BoardVo detail : (ArrayList<BoardVo>)request.getAttribute("detail") ){ %>
+		<li><%=detail.getWriter() %> | <%=detail.getSubject() %>
+		     <%=detail.getContext() %> | <%=detail.getCreatedate() %>  </li>
+	 <%} %>
+	</ul>
+	
+	<button type="button" class="btn list">목록</button>
+    <button type="button" class="btn update">수정</button>
+    
+    <script>
+    $(".btn.list").on("click",handlerClickBtnList);
+    $(".btn.update").on("click",handlerClickBtnUpdate);
+    
+    function handlerClickBtnList(){
+		console.log("btnList 눌림");
+		location.href="<%=request.getContextPath()%>/board"; 
+	}
+    
+   
+    
+    
+    </script>
 </body>
 </html>
