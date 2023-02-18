@@ -13,6 +13,7 @@
  서버 확인용 페이지
  
  request.getContextPath()+/
+ <a href="<%=request.getContextPath() %>/introYouth">사업소개</a>
  <a href="<%=request.getContextPath() %>/board">자유게시판</a>
 </body>
 </html>
