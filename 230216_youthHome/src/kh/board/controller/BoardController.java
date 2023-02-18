@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -45,6 +46,7 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 		}else {
 			pNum = Integer.parseInt(pageNumber);
 		}
+		
 		//이 pNum을 여태 만든 메서드들에게 인자로 넘겨줘야 해.. 
 		request.setAttribute("selectList",new BoardService().selectPage(pNum));
 		request.setAttribute("board", new BoardService().boardShow());//아 이건 지워도됨 페이지처리때문에.. 
