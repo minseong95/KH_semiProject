@@ -34,6 +34,11 @@
 		location.href="<%=request.getContextPath()%>/board"; 
 	}
     
+    function handlerClickBtnUpdate(){
+		console.log("btnUpdate 눌림");
+		location.href="<%=request.getContextPath()%>/update?id=<%=request.getAttribute("id")%>"; 
+	}
+
    
     
     

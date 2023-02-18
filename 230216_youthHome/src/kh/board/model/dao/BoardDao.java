@@ -201,5 +201,37 @@ public class BoardDao {
 			return -1;
 		}
 	
+		
+		//게시글 수정하기
+		public int update(Connection conn, BoardVo vo, int id){
+			int result = -1; //실패하면 -1로 처리해야하니까
+			String sql = "UPDATE BOARD_TABLE SET";
+				   sql +=" subject =?, CONTEXT =? WHERE idx = ?";
+				   //인서트문이니까..ㄴ
+				   PreparedStatement pstmt = null;
+				   
+				   try {
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, vo.getSubject());
+					pstmt.setString(2, vo.getContext()); 
+					pstmt.setInt(3, id);
+					
+					
+					result = pstmt.executeUpdate();
+					if(result>0) {
+						conn.commit();
+					}
+				} catch (Exception e) {
+					try {
+						conn.rollback();
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+				} finally {
+					close(pstmt);
+				}
+				   return result;
+		}
+		
 	
 }

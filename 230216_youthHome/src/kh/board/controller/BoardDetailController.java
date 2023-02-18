@@ -32,14 +32,9 @@ public class BoardDetailController extends HttpServlet {
 		
 		//상세 게시글 가기 위한..
 		int id = Integer.parseInt(request.getParameter("id"));
-		
-		//아 뭐여 이거 존나 쉽네
-		
-		
-		
-		
-		
-		
+
+
+		request.setAttribute("id", id);
 		request.setAttribute("detail", new BoardService().boardDetail(id));
 		request.getRequestDispatcher("WEB-INF/view/board/boardDetail.jsp").forward(request, response);
 	}

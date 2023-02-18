@@ -66,4 +66,20 @@ public class BoardService {
 		}
 		return false;
  }
+	//글 수정하기
+	public boolean update(BoardVo vo, int id){
+		int result = -1;
+		Connection conn = getConnection();
+		result = new BoardDao().update(conn, vo, id);
+		if(result ==1) {
+			return true;
+		}
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+ }
 }
