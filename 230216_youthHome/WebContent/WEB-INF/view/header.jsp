@@ -8,12 +8,20 @@
 		<div>
 			<c:choose>
 				<c:when test="${empty lgnss }">
-					<button type="button" class="btn login">로그인</button>
-					<button type="button" class="btn enroll">회원가입</button>		
+					<nav class="navbar-right bg-light pt-2">
+					 <form class="hstack gap-3">
+						<button class="btn login btn-outline-secondary me-2 ms-auto" type="button"> 로그인</button>
+						<button class="btn enroll btn-outline-secondary me-2" type="button">회원가입</button>
+						</form>
+					</nav>
 				</c:when>
 				<c:otherwise>
-					<button type="button"class="btn myinfo">마이페이지</button>
-					<button type="button" class="btn logout">로그아웃</button>
+					<nav class="navbar-right bg-light pt-2">
+					 <form class="hstack gap-3">
+						<button class="btn myinfo btn-outline-secondary me-2 ms-auto" type="button"> 마이페이지</button>
+						<button class="btn logout btn-outline-secondary me-2 " type="button">로그아웃</button>
+						</form>
+					</nav>
 				</c:otherwise>
 			</c:choose>
 		</div>
