@@ -86,8 +86,21 @@
 	 		</ul>	
  			
  			
- 	</script>
+			<div align="right" class="mb-4">
+ 				<button type="button" class="btn write btn-secondary">글 작성하기</button>
+ 			</div>
  			
+ 			
+ 			<script>
+ 				$(".btn.write").on("click", handlerClickBtnWrite);
+ 				
+ 				function handlerClickBtnWrite(){
+ 					console.log("작성하기 버튼 누르기");
+ 					location.href="<%=request.getContextPath()%>/write"
+ 				}
+ 			
+ 			
+ 			</script>
 		
 
 
