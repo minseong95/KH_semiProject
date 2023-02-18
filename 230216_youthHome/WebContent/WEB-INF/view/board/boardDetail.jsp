@@ -14,13 +14,18 @@
 	<div>
 	게시판
 	</div>
-	
 	<ul>
 	 <% for(BoardVo detail : (ArrayList<BoardVo>)request.getAttribute("detail") ){ %>
 		<li><%=detail.getWriter() %> | <%=detail.getSubject() %>
 		     <%=detail.getContext() %> | <%=detail.getCreatedate() %>  </li>
 	 <%} %>
 	</ul>
+	<hr>
+	
+	${detail.writer }
+	
+	<hr>
+	
 	
 	<button type="button" class="btn list">목록</button>
     <button type="button" class="btn update">수정</button>
