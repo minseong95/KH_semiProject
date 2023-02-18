@@ -233,5 +233,30 @@ public class BoardDao {
 				   return result;
 		}
 		
+		//글 삭제하기
+		public int delete(Connection conn, BoardVo vo, int id){
+			int result = -1; //실패하면 -1로 처리해야하니까
+			String sql = "DELETE FROM BOARD_TABLE WHERE idx=?";
+				   PreparedStatement pstmt = null;
+				   try {
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setInt(1, id);
+					
+					result = pstmt.executeUpdate();
+					if(result>0) {
+						conn.commit();
+					}
+				} catch (Exception e) {
+					try {
+						conn.rollback();
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+				} finally {
+					close(pstmt);
+				}
+				   return result;
+		}
+		
 	
 }

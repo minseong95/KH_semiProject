@@ -25,6 +25,10 @@
 	<button type="button" class="btn list">목록</button>
     <button type="button" class="btn update">수정</button>
     
+    <button type="submit" form="deleteForm" class="btn delete">삭제</button>
+    <form id="deleteForm" action="<%=request.getContextPath()%>/delete?id=<%=request.getAttribute("id")%>" method="post"></form>
+    <!-- 삭제 될까..? -->
+    
     <script>
     $(".btn.list").on("click",handlerClickBtnList);
     $(".btn.update").on("click",handlerClickBtnUpdate);

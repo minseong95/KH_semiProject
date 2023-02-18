@@ -82,4 +82,21 @@ public class BoardService {
 		}
 		return false;
  }
+	
+	//글 삭제하기
+	public boolean delete(BoardVo vo, int id){
+		int result = -1;
+		Connection conn = getConnection();
+		result = new BoardDao().delete(conn, vo, id);
+		if(result ==1) {
+			return true;
+		}
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+ }
 }
