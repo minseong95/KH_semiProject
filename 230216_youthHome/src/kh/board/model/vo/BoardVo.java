@@ -57,6 +57,17 @@ public class BoardVo {
 	public void setView_cnt(int view_cnt) {
 		this.view_cnt = view_cnt;
 	}
+	public BoardVo(int idx, String writer, String subject, String context, String createdate, int view_cnt) {
+		super();
+		this.idx = idx;
+		this.writer = writer;
+		this.subject = subject;
+		this.context = context;
+		this.createdate = createdate;
+		this.view_cnt = view_cnt;
+	}
+	
+	public BoardVo() {} //혹시몰라서 생성자 추가..
 	
 	
 	
