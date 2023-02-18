@@ -85,34 +85,8 @@
 				
 	 		</ul>	
  			
- 			-----------------------------------------------
  			
- 			<div>
-			  <a href="#">prev</a>
-			  <c:forEach var="pNum" items="${requestScope.pageList}">
-			    <a href="<%=request.getContextPath()%>/board?p=${pNum}">${pNum}</a>
-			  </c:forEach>
-			  <a href="#">next</a>
-			</div>
- 			
- 			
- 			
- 			<!-- 글 작성하기 버튼 -->
- 			<div align="right" class="mb-4">
- 				<button type="button" class="btn write btn-secondary">글 작성하기</button>
- 			</div>
- 			
- 			<!-- 누르면 작성하기 페이지로..  -->
- 			<script>
- 				$(".btn.write").on("click", handlerClickBtnWrite);
- 				
- 				function handlerClickBtnWrite(){
- 					console.log("작성하기 버튼 누르기");
- 					location.href="<%=request.getContextPath()%>/write"
- 				}
- 			
- 			
- 			</script>
+ 	</script>
  			
 		
 

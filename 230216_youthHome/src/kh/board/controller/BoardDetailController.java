@@ -35,7 +35,8 @@ public class BoardDetailController extends HttpServlet {
 
 
 		request.setAttribute("id", id);
-		request.setAttribute("detail", new BoardService().boardDetail(id));
+		request.setAttribute("detail", new BoardService().boardDetail(id)); //이걸 넘겨서 jsp에서 사용..아닌가
+		System.out.println(new BoardService().boardDetail(id));//확인용
 		request.getRequestDispatcher("WEB-INF/view/board/boardDetail.jsp").forward(request, response);
 	}
 

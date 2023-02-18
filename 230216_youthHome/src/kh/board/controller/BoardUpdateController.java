@@ -47,7 +47,7 @@ public class BoardUpdateController extends HttpServlet {
 		
 		boolean result = new BoardService().update(vo,id);
 		if(result) {
-		response.sendRedirect(request.getContextPath()+"/boardDetail?id="+id);
+		response.sendRedirect(request.getContextPath()+"/boardDetail?id="+id); //근데 이게 맞나
 	} else {
 		System.out.println("등록 실패");
 	}
