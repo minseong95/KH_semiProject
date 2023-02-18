@@ -9,6 +9,7 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
+	<!-- 아 작성자 어떻게 끌고오지.. -->
 	<form action="<%=request.getContextPath() %>/update?id=<%=request.getAttribute("id")%>" method="post">
 		<div class="mb-4">
 		  <label for="exampleFormControlInput1" class="form-label">글 제목</label>
