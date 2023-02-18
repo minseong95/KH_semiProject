@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import kh.board.model.vo.BoardVo;
 import static kh.common.jdbc.JDBCTemplate.*;
@@ -52,8 +53,8 @@ public class BoardDao {
 	
 	
 	//게시글 상세 보기
-	public ArrayList<BoardVo> boardDetail(Connection conn, int id ){
-		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
+	public BoardVo boardDetail(Connection conn, int id ){
+		BoardVo vo = new BoardVo();
 		String sql ="SELECT writer, subject, context, createdate ";
 		       sql += " FROM BOARD_TABLE WHERE idx=?";
 		PreparedStatement pstmt = null;
@@ -65,12 +66,12 @@ public class BoardDao {
 			rs = pstmt.executeQuery(); //ResultSet에 다 담기
 			
 			while(rs.next()) {
-				BoardVo vo = new BoardVo();
+				//BoardVo vo = new BoardVo();
 				vo.setWriter(rs.getString(1));
 				vo.setSubject(rs.getString(2));
 				vo.setContext(rs.getString(3));
 				vo.setCreatedate(rs.getString(4));
-				list.add(vo);
+				return vo;
 				
 			}
 			
@@ -80,7 +81,7 @@ public class BoardDao {
 			close(pstmt);
 			close(rs);
 		}
-		return list;
+		return vo;
 	}
 	
 	

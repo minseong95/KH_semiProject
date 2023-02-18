@@ -19,11 +19,11 @@ public class BoardService {
 	
 	
 	//게시글 하나 보기
-	public ArrayList<BoardVo> boardDetail(int id) {
-		ArrayList<BoardVo> list = null;
+	public BoardVo boardDetail(int id) {
+		BoardVo vo = null;
 		Connection conn = getConnection();
-		list = new BoardDao().boardDetail(conn, id);
-		return list;
+		vo = new BoardDao().boardDetail(conn, id);
+		return vo;
 	}
 	
 	//페이지 옵션 선택에 따른..

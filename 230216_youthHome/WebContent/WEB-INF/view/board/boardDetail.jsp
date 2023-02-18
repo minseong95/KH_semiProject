@@ -14,15 +14,10 @@
 	<div>
 	게시판
 	</div>
-	<ul>
-	 <% for(BoardVo detail : (ArrayList<BoardVo>)request.getAttribute("detail") ){ %>
-		<li><%=detail.getWriter() %> | <%=detail.getSubject() %>
-		     <%=detail.getContext() %> | <%=detail.getCreatedate() %>  </li>
-	 <%} %>
-	</ul>
+
 	<hr>
 	
-	${detail.writer }
+	${detail.writer}
 	
 	<hr>
 	
