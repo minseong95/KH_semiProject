@@ -19,25 +19,41 @@
 	<section>
 	<h1 class="mx-4">회원가입</h1>
 	
-	<form action="<%=request.getContextPath()%>/enroll" method="post" class="w-75 mx-4">
-		<div class="mb-3">
-	  		<label for="idInput" class="form-label">아이디</label>
-	  		<input type="text" class="form-control" id="idInput" name="id">
+	<form action="<%=request.getContextPath()%>/enroll" method="post" class="was-validated w-75 mx-4">
+		
+	  		
+	  		<div class="mb-3">
+        	<label class="form-label">아이디</label>
+        	<input type="text" class="form-control" name="id"  placeholder="아이디를 입력해주세요" required="" style="height: 48px;"></input>
+     	    </div>
+	  		<!-- 중복검사때문에 type=text 이거 빼먹으면 안됨..  -->
+	  		
 	  		<button type="button" class="btn btn-outline-secondary" id="dupId">중복 id 확인</button>
 	  		<span></span>
-		</div>
-		<div class="mb-3">
-	  		<label for="psswdInput" class="form-label">비밀번호</label>
-	  		<input type="password" class="form-control" id="psswdInput" name="passwd" >
-		</div>
-		<div class="mb-3">
-	  		<label for="nameInput" class="form-label">이름</label>
-	  		<input type="text" class="form-control" id="nameInput"  name="name">
-		</div>
-		<div class="mb-3">
-	  		<label for="emailInput" class="form-label">이메일</label>
-	  		<input type="email" class="form-control" id="emailInput" name="email" >
-		</div>
+		
+		
+		
+			<div class="mb-3">
+        	<label class="form-label">비밀번호</label>
+        	<input type="password" class="form-control" name="passwd"  placeholder="비밀번호 입력해주세요" required="" style="height: 48px;"></input>
+        	
+     	    </div>
+		
+	  		
+		
+			<div class="mb-3">
+        	<label class="form-label">이름</label>
+        	<input type="text" class="form-control" name="name"  placeholder="이름을 입력해주세요" required="" style="height: 48px;"></input>
+     	    </div>
+		
+	  		
+		
+			<div class="mb-3">
+        	<label class="form-label">이메일</label>
+        	<input type="email" class="form-control" name="email"  placeholder="이메일을 입력해주세요" required="" style="height: 48px;"></input>
+     	    </div>
+		
+		
 		<button type="submit" class="btn btn-secondary btn-lg">가입하기</button>
 	</form>
 	
