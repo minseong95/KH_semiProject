@@ -52,6 +52,8 @@ public class LoginController extends HttpServlet {
 			request.getSession().setAttribute("lgnss", result);
 		}else {// null이면 로그인 실패
 			System.out.println("로그인실패");
+			request.setAttribute("msg","일치하는 아이디와 패스워드가 없습니다." );
+			request.getRequestDispatcher("/WEB-INF/msgAlert.jsp").forward(request,response);
 		}
 		
 		//3 페이지 이동 및 데이터전달
