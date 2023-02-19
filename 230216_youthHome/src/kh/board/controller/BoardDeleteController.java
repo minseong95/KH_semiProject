@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kh.board.model.service.BoardService;
 import kh.board.model.vo.BoardVo;
@@ -38,6 +39,9 @@ public class BoardDeleteController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		if(session.getAttribute("lgnss") != null) {
+		
 		BoardVo vo = new BoardVo();
 		int id = Integer.parseInt(request.getParameter("id"));
 		
@@ -48,5 +52,9 @@ public class BoardDeleteController extends HttpServlet {
 		System.out.println("삭제 실패");
 	}
 	}
-
+	else {System.out.println("로그인해라");
+	response.sendRedirect(request.getContextPath()+"/login");
+}
+		
+	}
 }

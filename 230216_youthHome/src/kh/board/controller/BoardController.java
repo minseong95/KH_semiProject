@@ -40,6 +40,7 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 //		
 		HttpSession session = request.getSession();
 		if(session.getAttribute("lgnss") != null) { //이렇게 해야 되는구만
+			//이걸 필터로 적용이 안되나??필터파일에서 왜 겟세션 임포트가 안되지..
 		
 		//페이징
 		String pageNumber = request.getParameter("p");//pNum은 사용자가 요청한 현재페이지..
@@ -59,7 +60,8 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 		
 
 		request.getRequestDispatcher("WEB-INF/view/board/board.jsp").forward(request, response);
-	} else {
+	
+		} else {
 		System.out.println("로그인해라");
 		response.sendRedirect(request.getContextPath()+"/login");
 	}
