@@ -10,18 +10,18 @@
 				<c:when test="${empty lgnss }">
 					<nav class="navbar-right bg-light pt-3 pb-3  ">
 					 <form class="hstack gap-3">
-					 	<button class="btn home btn-outline-secondary me-2" type="button"> 홈</button>
+					 	<button class="btn home btn-outline-secondary me-2 mx-4" type="button"> 홈</button>
 						<button class="btn login btn-outline-secondary me-2 ms-auto" type="button"> 로그인</button>
-						<button class="btn enroll btn-outline-secondary me-2" type="button">회원가입</button>
+						<button class="btn enroll btn-outline-secondary me-4 " type="button">회원가입</button>
 						</form>
 					</nav>
 				</c:when>
 				<c:otherwise>
 					<nav class="navbar-right bg-light pt-3 pb-3">
 					 <form class="hstack gap-3">
-					 	<button class="btn home btn-outline-secondary me-2" type="button"> 홈</button>
+					 	<button class="btn home btn-outline-secondary me-2 mx-4" type="button"> 홈</button>
 						<button class="btn myinfo btn-outline-secondary me-2 ms-auto" type="button"> 마이페이지</button>
-						<button class="btn logout btn-outline-secondary me-2 " type="button">로그아웃</button>
+						<button class="btn logout btn-outline-secondary me-4 " type="button">로그아웃</button>
 						</form>
 					</nav>
 				</c:otherwise>
