@@ -93,7 +93,8 @@ public class MemberDao {
 				close(rs);
 				close(pstmt);
 			}
-			//System.out.println(result); 테이블에 있는 아이디 입력했을 때 1로 되는데..어디서 잘못된거지
+			System.out.println(result); //테이블에 있는 아이디 입력했을 때 1로 되는데..어디서 잘못된거지
+			//잉 2로 나오네
 			return result;
 		}
 

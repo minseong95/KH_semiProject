@@ -43,7 +43,10 @@ public class AnnounceController extends HttpServlet {
 				request.setAttribute("selectList",new YouthService().selectPage(pNum));
 				List<Integer>pageList = new YouthService().getPageList();
 				request.setAttribute("pageList", pageList);
-		
+				
+				
+				
+				
 		request.getRequestDispatcher("WEB-INF/view/youth/announce.jsp").forward(request, response);
 	}
 

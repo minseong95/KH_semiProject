@@ -54,6 +54,10 @@
   			
  			</table>
  			
+ 			
+ 		
+ 			
+ 			
  			<!-- 페이징 -->
  			<ul class="pagination"> <!-- 페이징네이션 -->
 	 			  <c:set var="pageNumber" value="${empty param.p ? 1: param.p}" />
@@ -73,7 +77,7 @@
 	 		
 	 		function handlerClickBtnBookmark(){
 	 			console.log("btnBookmark누름");
-	 			location.href="<%=request.getContextPath()%>/bookmark";
+	 			location.href="<%=request.getContextPath()%>/bookmark?no=";
 	 		}
 	 		</script>
 

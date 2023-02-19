@@ -26,8 +26,8 @@ public class BookmarkController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String idx = (String) request.getAttribute("request.getAttribute(\"selectList\")");
-		System.out.println(idx);
+		int no = Integer.parseInt(request.getParameter("no")); //안되네.. 
+		System.out.println(no);
 	}
 
 	/**

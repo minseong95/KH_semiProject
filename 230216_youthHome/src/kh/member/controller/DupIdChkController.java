@@ -43,10 +43,10 @@ public class DupIdChkController extends HttpServlet {
 		 //System.out.println(result); 여기도 1... 
 		 PrintWriter out = response.getWriter();
 		 
-		 if(result == 1) { //위에서 선언한 result를 쓰려면 이렇게 해야되는구만
-			 out.append("fail");
+		 if(result == 0) { //위에서 선언한 result를 쓰려면 이렇게 해야되는구만
+			 out.append("ok");
 		 } else{
-			 out.append("ok");//왜 다 사용가능하대???? 아 여기서 ajax로 보내는게 잘못됐는데.. 
+			 out.append("fail");//왜 다 사용가능하대???? 아 여기서 ajax로 보내는게 잘못됐는데.. 
 		 }
 		 out.flush();
 		 out.close();
