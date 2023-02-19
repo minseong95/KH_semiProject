@@ -51,10 +51,10 @@ public class BoardService {
 	
 	
 	//글 작성해서 등록하기.. 아 안되네.. 
-	public boolean write(BoardVo vo){
+	public boolean write(BoardVo vo, String userId){
 		int result = -1;
 		Connection conn = getConnection();
-		result = new BoardDao().write(conn, vo);
+		result = new BoardDao().write(conn, vo, userId);
 		if(result ==1) {
 			return true;
 		}

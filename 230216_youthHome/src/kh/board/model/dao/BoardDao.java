@@ -149,7 +149,7 @@ public class BoardDao {
 	
 	
 	// 글 작성해서 등록하는 과정.. 
-	public int write(Connection conn, BoardVo vo){
+	public int write(Connection conn, BoardVo vo, String userId){
 		int result = -1; //실패하면 -1로 처리해야하니까
 		String sql = "INSERT INTO BOARD_TABLE VALUES";
 			   sql +="(?, ?, ?, ?, TO_CHAR(SYSDATE,'YYYY-MM-DD'), 0)";
@@ -159,7 +159,7 @@ public class BoardDao {
 			   try {
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, new BoardDao().getNo(conn));
-				pstmt.setString(2, vo.getWriter() ); 
+				pstmt.setString(2, userId); //될까..? 되는구나.. 
 				pstmt.setString(3, vo.getSubject());
 				pstmt.setString(4, vo.getContext());
 				

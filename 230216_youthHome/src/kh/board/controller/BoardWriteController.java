@@ -14,7 +14,7 @@ import kh.board.model.vo.BoardVo;
 /**
  * Servlet implementation class BoardWriteController
  */
-@WebServlet("/write")
+@WebServlet("/write") // 글 작성하기
 public class BoardWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -63,7 +63,7 @@ public class BoardWriteController extends HttpServlet {
 		request.setAttribute("userId", userId);
 		
 		
-		boolean result = new BoardService().write(vo);
+		boolean result = new BoardService().write(vo,userId);
 		if(result) {
 		response.sendRedirect(request.getContextPath()+"/board");
 	} else {
