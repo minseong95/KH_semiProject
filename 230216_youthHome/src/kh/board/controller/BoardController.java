@@ -35,8 +35,8 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 //		HttpSession session = request.getSession();
 //		if(!session.getAttribute("lgnss").equals("result")) {
 //			response.sendRedirect(request.getContextPath()+"/login");
-//		}
-		
+//		} 로그인해야 게시판으로 들어가게 하고 싶은데..
+//		
 		
 		//페이징
 		String pageNumber = request.getParameter("p");//pNum은 사용자가 요청한 현재페이지..
@@ -58,6 +58,7 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 		request.getRequestDispatcher("WEB-INF/view/board/board.jsp").forward(request, response);
 	}
 
+	//}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
