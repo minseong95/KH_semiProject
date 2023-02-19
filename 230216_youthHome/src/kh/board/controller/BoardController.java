@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import kh.board.model.service.BoardService;
 
@@ -37,6 +38,8 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 //			response.sendRedirect(request.getContextPath()+"/login");
 //		} 로그인해야 게시판으로 들어가게 하고 싶은데..
 //		
+		HttpSession session = request.getSession();
+		if(session.getAttribute("lgnss") != null) { //이렇게 해야 되는구만
 		
 		//페이징
 		String pageNumber = request.getParameter("p");//pNum은 사용자가 요청한 현재페이지..
@@ -56,9 +59,12 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 		
 
 		request.getRequestDispatcher("WEB-INF/view/board/board.jsp").forward(request, response);
+	} else {
+		System.out.println("로그인해라");
+		response.sendRedirect(request.getContextPath()+"/login");
 	}
 
-	//}
+	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
