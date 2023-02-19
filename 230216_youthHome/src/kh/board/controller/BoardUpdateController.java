@@ -30,7 +30,14 @@ public class BoardUpdateController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		
+		String context = request.getParameter("context");
+		String subject = request.getParameter("subject");
+		
+//		request.setAttribute("context", context);
+//		request.setAttribute("subject", subject); //음.. placeholder처럼 하고싶었는데.. 
+		
 		request.setAttribute("id", id);
+		
 		request.getRequestDispatcher("WEB-INF/view/board/update.jsp").forward(request, response);
 	}
 
@@ -43,8 +50,6 @@ public class BoardUpdateController extends HttpServlet {
 		String context = request.getParameter("context");
 		String subject = request.getParameter("subject");
 		
-		//request.setAttribute("context", context);
-		//request.setAttribute("subject", subject); 음.. placeholder처럼 하고싶었는데.. 
 		
 		vo.setContext(context);
 		vo.setSubject(subject);
