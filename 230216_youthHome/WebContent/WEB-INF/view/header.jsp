@@ -8,16 +8,18 @@
 		<div>
 			<c:choose>
 				<c:when test="${empty lgnss }">
-					<nav class="navbar-right bg-light pt-2">
+					<nav class="navbar-right bg-light pt-3 pb-3  ">
 					 <form class="hstack gap-3">
+					 	<button class="btn home btn-outline-secondary me-2" type="button"> 홈</button>
 						<button class="btn login btn-outline-secondary me-2 ms-auto" type="button"> 로그인</button>
 						<button class="btn enroll btn-outline-secondary me-2" type="button">회원가입</button>
 						</form>
 					</nav>
 				</c:when>
 				<c:otherwise>
-					<nav class="navbar-right bg-light pt-2">
+					<nav class="navbar-right bg-light pt-3 pb-3">
 					 <form class="hstack gap-3">
+					 	<button class="btn home btn-outline-secondary me-2" type="button"> 홈</button>
 						<button class="btn myinfo btn-outline-secondary me-2 ms-auto" type="button"> 마이페이지</button>
 						<button class="btn logout btn-outline-secondary me-2 " type="button">로그아웃</button>
 						</form>
@@ -27,10 +29,17 @@
 		</div>
 		
 		<script>
+		$(".btn.home").on("click",handlerClickBtnHome);
 		$(".btn.login").on("click",handlerClickBtnLogin);
 		$(".btn.logout").on("click",handlerClickBtnLogout);
 		$(".btn.myinfo").on("click",handlerClickBtnMyinfo);
 		$(".btn.enroll").on("click",handlerClickBtnEnroll);
+		
+		
+		function handlerClickBtnHome(){
+			console.log("btnHome눌림");
+			location.href="<%=request.getContextPath()%>/"; 
+		}
 		
 		function handlerClickBtnLogin(){
 			console.log("btnLogin 눌림");

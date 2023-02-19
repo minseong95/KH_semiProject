@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kh.board.model.service.BoardService;
 import kh.board.model.vo.BoardVo;
@@ -54,6 +55,13 @@ public class BoardWriteController extends HttpServlet {
 		String subject = request.getParameter("subject");
 		vo.setContext(context);
 		vo.setSubject(subject);
+		
+		HttpSession session = request.getSession();
+		String userId = (String)session.getAttribute("userId");
+		System.out.println(userId); // 될까..?
+		
+		request.setAttribute("userId", userId);
+		
 		
 		boolean result = new BoardService().write(vo);
 		if(result) {

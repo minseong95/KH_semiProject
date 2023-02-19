@@ -23,7 +23,7 @@
 		<div class="mb-3 row">
 	    <label for="staticEmail" class="col-sm-2 col-form-label">작성자</label>
 	    <div class="col-sm-10">
-	      <input type="text" readonly class="form-control-plaintext w-25" id="staticEmail" value="유저1 값 가져와..">
+	      <input type="text" readonly class="form-control-plaintext w-25" id="staticEmail" value="${userId}">
 	    </div>
 	  </div>
 		

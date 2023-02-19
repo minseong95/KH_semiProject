@@ -52,6 +52,7 @@ public class BoardDeleteController extends HttpServlet {
 		System.out.println("삭제 실패");
 	}
 	}
+		
 	else {System.out.println("로그인해라");
 	response.sendRedirect(request.getContextPath()+"/login");
 }

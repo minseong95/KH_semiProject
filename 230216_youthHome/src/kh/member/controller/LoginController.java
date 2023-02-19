@@ -48,6 +48,7 @@ public class LoginController extends HttpServlet {
 		MemberVo result = new MemberService().login(vo);
 		if(result != null) {//로그인 성공
 			System.out.println("로그인성공");
+			request.getSession().setAttribute("userId", request.getParameter("id"));
 			request.getSession().setAttribute("lgnss", result);
 		}else {// null이면 로그인 실패
 			System.out.println("로그인실패");
