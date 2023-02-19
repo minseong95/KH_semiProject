@@ -10,11 +10,16 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
+	<nav class="navbar bg-light">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="<%=request.getContextPath()%>/">메인으로</a>
+	  </div>
+	</nav>
 
 	<section>
-	<h1>회원가입</h1>
+	<h1 class="mx-4">회원가입</h1>
 	
-	<form action="<%=request.getContextPath()%>/enroll" method="post">
+	<form action="<%=request.getContextPath()%>/enroll" method="post" class="w-75 mx-4">
 		<div class="mb-3">
 	  		<label for="idInput" class="form-label">아이디</label>
 	  		<input type="text" class="form-control" id="idInput" name="id">

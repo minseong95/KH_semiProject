@@ -6,20 +6,33 @@
 <head>
 <meta charset="UTF-8">
 <title>글 수정하기</title>
+ <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
+
+		<ol class="list-group w-25 mt-5 mb-5 mx-4">
+          <li class="list-group-item d-flex justify-content-between align-items-start" >
+            <div class="ms-2 me-auto">
+             <div class="fw-bold text-start">글 수정하기</div>
+           </div>
+          </li>
+        </ol>
+
+
 	<!-- 아 작성자 어떻게 끌고오지.. -->
-	<form action="<%=request.getContextPath() %>/update?id=<%=request.getAttribute("id")%>" method="post">
+	<form action="<%=request.getContextPath() %>/update?id=<%=request.getAttribute("id")%>" method="post" class="mx-4">
 		<div class="mb-4">
 		  <label for="exampleFormControlInput1" class="form-label">글 제목</label>
-		  <input type="text" class="form-control w-50" name="subject" id="exampleFormControlInput1" >
+		  <input type="text" class="form-control w-50" name="subject"  >
 		</div>
 		
 		<div class="mb-3 row">
 	    <label for="staticEmail" class="col-sm-2 col-form-label">작성자</label>
 	    <div class="col-sm-10">
-	      <input type="text" readonly class="form-control-plaintext w-25" id="staticEmail" value="유저1 값 가져와..">
+	      <input type="text" readonly class="form-control-plaintext w-25" id="staticEmail" value="${userId}">
 	    </div>
 	  </div>
 		

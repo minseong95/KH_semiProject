@@ -12,9 +12,19 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
-글 작성 양식을 만들거야..
+
+
+		<ol class="list-group w-25 mt-5 mb-5 mx-4">
+          <li class="list-group-item d-flex justify-content-between align-items-start" >
+            <div class="ms-2 me-auto">
+             <div class="fw-bold text-start">글 작성하기</div>
+           </div>
+          </li>
+        </ol>
+
+
 	<!-- 어뭐야 왜 돼 왜?????/board에서 /write로 바꾸니까 돼는데????ㅅㅂ -->
-	<form action="<%=request.getContextPath() %>/write" method="post">
+	<form action="<%=request.getContextPath() %>/write" method="post" class="mx-4">
 		<div class="mb-4">
 		  <label for="exampleFormControlInput1" class="form-label">글 제목</label>
 		  <input type="text" class="form-control w-50" name="subject" id="exampleFormControlInput1" >

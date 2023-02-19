@@ -14,6 +14,14 @@
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
 
+ 		<ol class="list-group w-25 mt-5 mb-5 mx-4">
+          <li class="list-group-item d-flex justify-content-between align-items-start" >
+            <div class="ms-2 me-auto">
+             <div class="fw-bold text-start">모집공고</div>
+           </div>
+          </li>
+        </ol>
+
 <!-- 게시글 목록 테이블 -->
 		<table class="table table-bordered">
 		  <thead>

@@ -9,6 +9,7 @@
 <title>내 정보보기</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
 <h1>내 정보보기</h1>
 	<h4>EL request Attribute</h4>
 	<c:if test ="${empty myinfo }">

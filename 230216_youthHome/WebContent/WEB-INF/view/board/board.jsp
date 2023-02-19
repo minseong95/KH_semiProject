@@ -15,21 +15,14 @@
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
 
-		<div class>
-			<nav class="navbar bg-light">
-			  <div class="container-fluid">
-			    <span class="navbar-brand mb-0 h1">여기는 헤더..</span>
-			  </div>
-			</nav>
-		</div>
-		<!-- 네비 -->
-		<div class="mb-5">
-			<nav class="navbar bg-light">
-			  <div class="container-fluid">
-			    <span class="navbar-brand mb-0 h1">자유 게시판</span>
-			  </div>
-			</nav>
-		</div>
+	
+		 <ol class="list-group w-25 mt-5 mb-5 mx-4">
+          <li class="list-group-item d-flex justify-content-between align-items-start" >
+            <div class="ms-2 me-auto">
+             <div class="fw-bold text-start">자유게시판</div>
+           </div>
+          </li>
+        </ol>
 		
 		
 		<!-- 페이지 처리 구현 -->
@@ -45,7 +38,7 @@
 		
 		
 		<!-- 게시글 목록 테이블 -->
-		<table class="table table-bordered">
+		<table class="table table-bordered ">
 		  <thead>
 		    <tr>
 		      <th scope="col">번호</th>
