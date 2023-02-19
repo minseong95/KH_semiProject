@@ -7,11 +7,21 @@
 <head>
 <meta charset="UTF-8">
 <title>내 정보보기</title>
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
-<h1>내 정보보기</h1>
-	<h4>EL request Attribute</h4>
+
+	<ol class="list-group w-25 mt-5 mb-5 mx-4">
+          <li class="list-group-item d-flex justify-content-between align-items-start" >
+            <div class="ms-2 me-auto">
+             <div class="fw-bold text-start">내 정보보기</div>
+           </div>
+          </li>
+        </ol>
+
+
 	<c:if test ="${empty myinfo }">
 		<div>
 		<h4>로그인되지 않았습니다. 정보가 없습니다. </h4>
