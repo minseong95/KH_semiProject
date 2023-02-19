@@ -14,6 +14,7 @@
  
  request.getContextPath()+/
  <a href="<%=request.getContextPath() %>/introYouth">사업소개</a>
+ <a href="<%=request.getContextPath() %>/annoucne">모집공고</a>
  <a href="<%=request.getContextPath() %>/board">자유게시판</a>
 </body>
 </html>
