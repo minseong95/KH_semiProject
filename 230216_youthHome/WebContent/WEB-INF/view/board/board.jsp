@@ -26,14 +26,14 @@
 		
 		
 		<!-- 페이지 처리 구현 -->
-		<div>
+		<!-- div>
 			<select class="form-select form-select-sm"   style= "width:100px;height:30px;">
 			  <option>5개</option>
 			  <option>10개</option>
 			  <option>15개</option>
 			  <option>20개</option>
 			</select>
-		</div>
+		</div--> <!-- 못하겠네.. -->
 		
 		
 		
