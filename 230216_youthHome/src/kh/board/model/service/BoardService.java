@@ -120,4 +120,13 @@ public class BoardService {
 		return originalUser;
 	
 	}
+	
+	//조회수 올리기
+	public int readCount(int id) {
+		int readCnt = -1;
+		Connection conn = getConnection();
+		readCnt = new BoardDao().readCount(conn,id);
+		close(conn);
+		return readCnt;
+}
 }

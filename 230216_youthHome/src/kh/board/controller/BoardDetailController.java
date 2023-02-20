@@ -32,6 +32,8 @@ public class BoardDetailController extends HttpServlet {
 		
 			//상세 게시글 가기 위한..
 			int id = Integer.parseInt(request.getParameter("id"));
+			new BoardService().readCount(id); // 조회수 여기서?
+			//헐 여기다 넣으니까 되네????왜????
 	
 			request.setAttribute("id", id);
 			request.setAttribute("detail", new BoardService().boardDetail(id)); //이걸 넘겨서 jsp에서 사용..아닌가

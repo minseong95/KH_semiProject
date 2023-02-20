@@ -285,5 +285,32 @@ public class BoardDao {
 			return originalUser;
 		}
 		
+		
+		//조회수 올리기..
+		public int readCount(Connection conn, int id) {
+			int readCnt = -1;
+			String sql = "update BOARD_TABLE set VIEW_CNT = VIEW_CNT + 1 where idx=?";
+			PreparedStatement pstmt = null;
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, id);
+				
+				readCnt = pstmt.executeUpdate();
+				System.out.println(readCnt);  //??오ㅐ 안나와????
+				if(readCnt>0) {
+					conn.commit(); //커밋 잊지말기..
+				}
+			} catch (Exception e) {
+				try {
+					conn.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			} finally {
+				close(pstmt);
+			}
+			   return readCnt;
+		}
 	
 }

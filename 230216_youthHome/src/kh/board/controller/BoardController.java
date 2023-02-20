@@ -59,6 +59,11 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 		//int lastPageNumber = new BoardService().getLastPageNumber(); 존나 모르겠음..ㅜㅜ
 		request.setAttribute("pageList", pageList);
 		
+		
+//		//조회수 올리기.. 왜 아이디가 null값으로 나오는지..?
+//		int id = Integer.parseInt(request.getParameter("id"));
+//		int readCnt = new BoardService().readCount(id); //여기서 아이디가 글 번호..
+//		request.setAttribute("readCnt", readCnt);
 
 		request.getRequestDispatcher("WEB-INF/view/board/board.jsp").forward(request, response);
 	

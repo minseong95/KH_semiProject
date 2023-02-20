@@ -50,7 +50,7 @@ public class EnrollController extends HttpServlet {
 			System.out.println("Ctrl param : " + vo);
 			//2. DB *여기서부턴 순서를 잘 지키는 것이 중요
 			int result = new MemberService().enroll(vo);
-			
+			//여기서 result가 ajax 매개변수로 들어감
 			if(result < 1) {
 				System.out.println("회원가입 실패");
 				request.setAttribute("msg","회원가입에 실패했습니다. 다시 시도해주세요." );
