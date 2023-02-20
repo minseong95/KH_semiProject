@@ -17,4 +17,17 @@
 	  <filter-name>EncodingFilter</filter-name>
 	  <url-pattern>/*</url-pattern> <!-- 모든 url에 적용하겠다 -->
 	  </filter-mapping>
+	  
+	  <!-- 그 이미지 안나오는 문제.. -->
+	  <servlet-mapping>
+	<servlet-name>default</servlet-name>
+	<url-pattern>*.js</url-pattern>
+	<url-pattern>*.css</url-pattern>
+	<url-pattern>*.jpg</url-pattern>
+	<url-pattern>*.png</url-pattern>
+	<url-pattern>*.ico</url-pattern>
+	<url-pattern>*.swf</url-pattern>
+	<url-pattern>*.gif</url-pattern>
+</servlet-mapping>
+
 </web-app>
