@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kh.board.model.service.BoardService;
 import kh.board.model.vo.BoardVo;
@@ -50,15 +51,25 @@ public class BoardUpdateController extends HttpServlet {
 		String context = request.getParameter("context");
 		String subject = request.getParameter("subject");
 		
+		//그 작성자인지 확인..delete에서 했던거 복붙함
+		HttpSession session = request.getSession();
+		String userId = (String)session.getAttribute("userId");
+		String originalUser= new BoardService().deleteChkUser(id);
 		
+		if(session.getAttribute("lgnss") != null && userId.equals(originalUser)) {
+		//
 		vo.setContext(context);
 		vo.setSubject(subject);
 		
 		boolean result = new BoardService().update(vo,id);
 		if(result) {
 		response.sendRedirect(request.getContextPath()+"/boardDetail?id="+id); //근데 이게 맞나
-	} else {
-		System.out.println("등록 실패");
+	} 
+		}
+		else {
+			request.setAttribute("msg","해당 글에 대한 접근 권한이 없습니다. " );
+			request.getRequestDispatcher("/WEB-INF/msgAlert_board.jsp").forward(request,response);
+		//System.out.println("등록 실패");
 	}
 
 	}
