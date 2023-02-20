@@ -50,6 +50,8 @@ public class LoginController extends HttpServlet {
 			System.out.println("로그인성공");
 			request.getSession().setAttribute("userId", request.getParameter("id"));
 			request.getSession().setAttribute("lgnss", result);
+			response.sendRedirect(request.getContextPath()+"/board"); //홈 화면으로 이동 이 아니라 게시판으로..그 뭐냐 내가 로그인 필요한 부분이 게시판이라 걍 아예 게시판으로 바로 넘겨버리기
+			return;
 		}else {// null이면 로그인 실패
 			System.out.println("로그인실패");
 			request.setAttribute("msg","일치하는 아이디와 패스워드가 없습니다." );
