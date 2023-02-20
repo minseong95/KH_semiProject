@@ -40,21 +40,27 @@ public class BoardDeleteController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		if(session.getAttribute("lgnss") != null) {
+		
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		String userId = (String)session.getAttribute("userId");
+		String originalUser= new BoardService().deleteChkUser(id);
+		
+		
+		if(session.getAttribute("lgnss") != null && userId.equals(originalUser)) {
 		
 		BoardVo vo = new BoardVo();
-		int id = Integer.parseInt(request.getParameter("id"));
 		
 		boolean result = new BoardService().delete(vo,id);
 		if(result) {
 		response.sendRedirect(request.getContextPath()+"/board");
-	} else {
-		System.out.println("삭제 실패");
-	}
-	}
-		
-	else {System.out.println("로그인해라");
-	response.sendRedirect(request.getContextPath()+"/login");
+	} 
+//		else {
+//		System.out.println("삭제 실패");
+//	}
+		}else {
+			request.setAttribute("msg","해당 글에 대한 접근 권한이 없습니다. " );
+			request.getRequestDispatcher("/WEB-INF/msgAlert_board.jsp").forward(request,response);
 }
 		
 	}

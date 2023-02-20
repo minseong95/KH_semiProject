@@ -68,13 +68,39 @@
  			<!-- 페이징 -->
  			<ul class="pagination"> <!-- 페이징네이션 -->
 	 			  <c:set var="pageNumber" value="${empty param.p ? 1: param.p}" />
-				  <li class="page-item"><a class="page-link" href="#">prev</a></li>
+	 			  
+	 			  
+	 			   <c:choose>
+	 		 			<c:when test="${pNum eq 1}">
+	 		 				 <li class="page-item"><a class="page-link" href="#">prev</a></li>
+	 		 			</c:when>
+	 		 			<c:otherwise>
+	 		 		 		<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/board?p=1">prev</a></li>
+	 		 			</c:otherwise>
+	 		 	   </c:choose>
+	 			   
+	 			   
+	 			   
+				  <!-- li class="page-item"><a class="page-link" href="#">prev</a></li-->
+				  
 				  
 				  <c:forEach var="pNum" items="${requestScope.pageList}">
 				    <li class="page-item ${pNum eq pageNumber ? 'active' : '' }"><a class="page-link" href="<%=request.getContextPath()%>/board?p=${pNum}">${pNum}</a></li>
 				  </c:forEach>
 				  
-				  <li class="page-item"><a class="page-link" href="#">next</a></li>
+				  
+					<!-- 아 마지막 페이지를 구해서 eq 뒤에 넣으면..   -->
+				  <c:choose>
+	 		 			<c:when test="${pNum eq 3}">
+	 		 				<li class="page-item"><a class="page-link" href="#">next</a></li>
+	 		 			</c:when>
+	 		 			<c:otherwise>
+	 		 				<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/board?p=3">next</a></li>
+	 		 			</c:otherwise>
+	 		 	</c:choose>
+				  
+				  
+				  <!-- li class="page-item"><a class="page-link" href="#">next</a></li-->
 				
 	 		</ul>	
  			

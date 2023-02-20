@@ -56,6 +56,7 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 		request.setAttribute("board", new BoardService().boardShow());//아 이건 지워도됨 페이지처리때문에.. 
 		
 		List<Integer>pageList = new BoardService().getPageList();
+		//int lastPageNumber = new BoardService().getLastPageNumber(); 존나 모르겠음..ㅜㅜ
 		request.setAttribute("pageList", pageList);
 		
 

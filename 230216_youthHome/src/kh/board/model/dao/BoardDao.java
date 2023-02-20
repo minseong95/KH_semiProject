@@ -259,5 +259,31 @@ public class BoardDao {
 				   return result;
 		}
 		
+		//글삭할때 그 글 주인인지 확인하고싶음..
+		public String deleteChkUser(Connection conn, int id) {
+			String originalUser = null;
+			String sql ="select WRITER from BOARD_TABLE where idx=?";
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, id);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					originalUser= rs.getString(1);
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+				close(rs);
+			}
+			System.out.println(originalUser);
+			return originalUser;
+		}
+		
 	
 }

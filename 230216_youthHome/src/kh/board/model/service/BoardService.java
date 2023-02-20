@@ -49,6 +49,16 @@ public class BoardService {
 		      return pageList;
 		   }
 	
+	//그거 >>next 하고싶어서.. 
+	public int getLastPageNumber() {
+		   BoardDao dao = new BoardDao();
+		   Connection conn = getConnection();
+		   int totalRowCount = dao.selectTotalRowCount(conn);
+		   int mod = (totalRowCount % 5 ) == 0 ? 0 : 1; //여기 5도 임의로 정한 상태
+		   int pageCount = (totalRowCount / 5) + mod;
+		   return pageCount;
+	}
+	
 	
 	//글 작성해서 등록하기.. 아 안되네.. 
 	public boolean write(BoardVo vo, String userId){
@@ -99,4 +109,15 @@ public class BoardService {
 		}
 		return false;
  }
+	
+	
+	//글삭할때 그 글 주인인지 확인하고싶음..
+	public String deleteChkUser(int id) {
+		String originalUser = null;
+		Connection conn = getConnection();
+		originalUser = new BoardDao().deleteChkUser(conn,id);
+		close(conn);
+		return originalUser;
+	
+	}
 }
