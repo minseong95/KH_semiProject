@@ -57,7 +57,7 @@ public class EnrollController extends HttpServlet {
 				request.getRequestDispatcher("/WEB-INF/msgAlert.jsp").forward(request,response);
 			} else {
 				System.out.println("회원가입 성공");
-				response.sendRedirect(request.getContextPath()+"/"); //이렇게 해야 성공하면 홈으로 간다
+				response.sendRedirect(request.getContextPath()+"/login"); //이렇게 해야 성공하면 홈으로 간다
 			}
 	 
 		}
