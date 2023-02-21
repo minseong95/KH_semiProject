@@ -86,12 +86,12 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 		request.setAttribute("cnt", cnt);
 		System.out.println("쿠키 작업하고나서cnt 값은...? : " +cnt);
 		
-		//이 pNum을 여태 만든 메서드들에게 인자로 넘겨줘야 해.. 
+		//이 pNum을 여태 만든 메서드들에게 인자로 넘겨줘야 해.. + cnt도 넘겨주기
 		request.setAttribute("selectList",new BoardService().selectPage(pNum, Integer.parseInt(cnt)));
 		//request.setAttribute("board", new BoardService().boardShow());//아 이건 지워도됨 페이지처리때문에.. 
 		
 		List<Integer>pageList = new BoardService().getPageList(Integer.parseInt(cnt)); //겟파라미터로 받은건 string이니까 형변환.. 
-		int lastPageNumber = new BoardService().getLastPageNumber(Integer.parseInt(cnt)); 
+		//int lastPageNumber = new BoardService().getLastPageNumber(Integer.parseInt(cnt)); 
 		request.setAttribute("pageList", pageList);
 		
 		

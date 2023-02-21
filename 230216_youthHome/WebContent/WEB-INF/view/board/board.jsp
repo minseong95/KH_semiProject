@@ -29,10 +29,10 @@
 		<div>
 			<form action="/board"> <!-- url 이게 맞으려나.. // 왜 그냥 submit으로하면 url로 cnt가 안나오지??  --> 
 				<select name="cnt" onchange="submit();" class="form-select form-select-sm"  style= "width:100px;height:30px;">
-				  <option value= "5" <c:if test="${cnt == 5 }">selected</c:if>> 5개</option>
-				  <option value="10" <c:if test="${cnt == 10 }">selected</c:if>> 10개</option>
+				  <option value= "5" <c:if test="${cnt == 5 }">selected</c:if> > 5개</option>
+				  <option value="10" <c:if test="${cnt == 10 }">selected</c:if> > 10개</option>
 				  <option value="15" <c:if test="${cnt == 15 }">selected</c:if>> 15개</option>
-				  <option value="20"<c:if test="${cnt == 20 }">selected</c:if>> 20개</option>
+				  <option value="20""<c:if test="${cnt == 20 }">selected</c:if>> 20개</option>
 				</select>
 			</form>
 		</div-->
