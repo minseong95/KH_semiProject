@@ -72,11 +72,11 @@
 	 			  
 	 			  
 	 			   <c:choose>
-	 		 			<c:when test="${pNum eq 1}">
-	 		 				 <li class="page-item"><a class="page-link" href="#">prev</a></li>
+	 		 			<c:when test="${pageNumber eq 1}">
+	 		 				 <li class="page-item"><a class="page-link">prev</a></li> <!-- 링크 클릭 안되게 비활성화.. -->
 	 		 			</c:when>
 	 		 			<c:otherwise>
-	 		 		 		<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/board?p=1">prev</a></li>
+	 		 		 		<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/board?p=${pageNumber - 1}">prev</a></li>
 	 		 			</c:otherwise>
 	 		 	   </c:choose>
 	 			   
@@ -91,12 +91,13 @@
 				  
 				  
 					<!-- 아 마지막 페이지를 구해서 eq 뒤에 넣으면..   -->
+					<!-- 아 그냥 lastPageNumber라고 하면 안되고 requestScope를 붙여야 되는군...  -->
 				  <c:choose>
-	 		 			<c:when test="${pNum eq 3}">
-	 		 				<li class="page-item"><a class="page-link" href="#">next</a></li>
+	 		 			<c:when test="${pageNumber eq requestScope.lastPageNumber}">
+	 		 				<li class="page-item"><a class="page-link">next</a></li>
 	 		 			</c:when>
 	 		 			<c:otherwise>
-	 		 				<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/board?p=3">next</a></li>
+	 		 				<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/board?p=${pageNumber + 1}">next</a></li>
 	 		 			</c:otherwise>
 	 		 	</c:choose>
 				  

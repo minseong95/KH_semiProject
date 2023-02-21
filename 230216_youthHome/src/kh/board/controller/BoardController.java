@@ -91,9 +91,9 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 		//request.setAttribute("board", new BoardService().boardShow());//아 이건 지워도됨 페이지처리때문에.. 
 		
 		List<Integer>pageList = new BoardService().getPageList(Integer.parseInt(cnt)); //겟파라미터로 받은건 string이니까 형변환.. 
-		//int lastPageNumber = new BoardService().getLastPageNumber(Integer.parseInt(cnt)); 
+		int lastPageNumber = new BoardService().getLastPageNumber(Integer.parseInt(cnt)); 
 		request.setAttribute("pageList", pageList);
-		
+		request.setAttribute("lastPageNumber", lastPageNumber);
 		
 //		//조회수 올리기.. 왜 아이디가 null값으로 나오는지..?
 //		int id = Integer.parseInt(request.getParameter("id"));
