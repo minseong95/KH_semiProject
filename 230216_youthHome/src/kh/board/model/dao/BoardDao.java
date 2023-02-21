@@ -87,7 +87,7 @@ public class BoardDao {
 	
 	
 	//페이지 목록 옵션에 따른.. 
-	public ArrayList<BoardVo> selectPage(Connection conn, int pNum){
+	public ArrayList<BoardVo> selectPage(Connection conn, int pNum, int cnt){
 		ArrayList<BoardVo> selectList = new ArrayList<BoardVo>();
 		String sql = "SELECT idx, WRITER, SUBJECT, CREATEDATE, view_cnt "; 
 		       sql += " FROM (SELECT * FROM BOARD_TABLE ORDER BY idx) ";
@@ -97,8 +97,8 @@ public class BoardDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1,(pNum-1)*5 +1); //임의로 5개 목록 수... 
-			pstmt.setInt(2, pNum*5); //여기서 5이 옵션으로 선택한다는 건데..
+			pstmt.setInt(1,(pNum-1)*cnt +1); //임의로 5개 목록 수... 
+			pstmt.setInt(2, pNum*cnt); //여기서 5이 옵션으로 선택한다는 건데..
 			rs = pstmt.executeQuery(); //셀렉트니까.. 
 			
 			while(rs.next()) {

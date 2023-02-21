@@ -27,20 +27,20 @@ public class BoardService {
 	}
 	
 	//페이지 옵션 선택에 따른..
-	public ArrayList<BoardVo> selectPage(int pNum){
+	public ArrayList<BoardVo> selectPage(int pNum, int cnt){
 		ArrayList<BoardVo> selectList = null;
 		Connection conn = getConnection();
-		selectList = new BoardDao().selectPage(conn, pNum);
+		selectList = new BoardDao().selectPage(conn, pNum, cnt);
 		return selectList;
 	}
 	
 	//그 하단에 페이징 구현할 차례..졸려죽겟다
-	public List<Integer> getPageList(){
+	public List<Integer> getPageList(int cnt){
 		   BoardDao dao = new BoardDao();
 		   Connection conn = getConnection();
 		   int totalRowCount = dao.selectTotalRowCount(conn);
-		   int mod = (totalRowCount % 5 ) == 0 ? 0 : 1; //여기 5도 임의로 정한 상태
-		   int pageCount = (totalRowCount / 5) + mod;
+		   int mod = (totalRowCount % cnt ) == 0 ? 0 : 1; //여기 5도 임의로 정한 상태
+		   int pageCount = (totalRowCount / cnt) + mod;
 		   
 		   List<Integer> pageList = new ArrayList<Integer>();
 		   for(int i = 1; i<=pageCount; i++){
@@ -50,12 +50,12 @@ public class BoardService {
 		   }
 	
 	//그거 >>next 하고싶어서.. 
-	public int getLastPageNumber() {
+	public int getLastPageNumber(int cnt) {
 		   BoardDao dao = new BoardDao();
 		   Connection conn = getConnection();
 		   int totalRowCount = dao.selectTotalRowCount(conn);
-		   int mod = (totalRowCount % 5 ) == 0 ? 0 : 1; //여기 5도 임의로 정한 상태
-		   int pageCount = (totalRowCount / 5) + mod;
+		   int mod = (totalRowCount % cnt ) == 0 ? 0 : 1; //여기 5도 임의로 정한 상태
+		   int pageCount = (totalRowCount / cnt) + mod;
 		   return pageCount;
 	}
 	

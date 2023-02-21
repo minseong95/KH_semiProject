@@ -51,12 +51,47 @@ public class BoardController extends HttpServlet { //게시판컨트롤러
 			pNum = Integer.parseInt(pageNumber);
 		}
 		
-		//이 pNum을 여태 만든 메서드들에게 인자로 넘겨줘야 해.. 
-		request.setAttribute("selectList",new BoardService().selectPage(pNum));
-		request.setAttribute("board", new BoardService().boardShow());//아 이건 지워도됨 페이지처리때문에.. 
+		//옵션 선택에 따른 글목록 개수
+		Cookie cookie = null;
+		Cookie[] cookies = request.getCookies(); // 쿠키를 찾아야 한다..
+		for(Cookie c : cookies) {
+			if(c.getName().equals("cnt")) {
+				cookie = c; // 쿠키를 찾아서 저장하고 브라우저에서 보낸다..
+			}
+		}
 		
-		List<Integer>pageList = new BoardService().getPageList();
-		//int lastPageNumber = new BoardService().getLastPageNumber(); 존나 모르겠음..ㅜㅜ
+		String cnt = request.getParameter("cnt"); //파라미터가 있어도 이게 비워져있는지 아닌지 확인해야 함.
+		System.out.println("getParameter로 cnt 가져온거..: "+cnt); //왜 null로 뜨지..
+		if( cnt!= null ) { 
+			if(cnt.isEmpty()) { //파라미터는 있는데 값은 없는 경우..
+				if(cookie != null) {
+					cnt = cookie.getValue(); // 쿠키가 있다는 가정하에 쿠키로 초기화..
+				}else {
+					cnt ="5"; //쿠키가 없으면 5로 초기화하자.. 
+				}
+			} //아 괄호 잘 확인할 것 여기다 괄호 안넣었고
+			} else {
+				if(cookie != null) { // 쿠키가 있다!!
+					cnt = cookie.getValue(); //그럼 쿠키값 넣어주고
+				} else {
+				cnt = "5"; //없으면 임의로 5 주자.. 
+				}
+			 }	
+			//여기다 괄호 넣어서 cnt가 null으로 뜨더라.. 
+		
+		cookie = new Cookie("cnt", cnt);
+		cookie.setMaxAge(60*60*24*5); //5일동안 유지하겠어.. 
+		response.addCookie(cookie); //응답할 때 같이 전달할라거..
+		
+		request.setAttribute("cnt", cnt);
+		System.out.println("쿠키 작업하고나서cnt 값은...? : " +cnt);
+		
+		//이 pNum을 여태 만든 메서드들에게 인자로 넘겨줘야 해.. 
+		request.setAttribute("selectList",new BoardService().selectPage(pNum, Integer.parseInt(cnt)));
+		//request.setAttribute("board", new BoardService().boardShow());//아 이건 지워도됨 페이지처리때문에.. 
+		
+		List<Integer>pageList = new BoardService().getPageList(Integer.parseInt(cnt)); //겟파라미터로 받은건 string이니까 형변환.. 
+		int lastPageNumber = new BoardService().getLastPageNumber(Integer.parseInt(cnt)); 
 		request.setAttribute("pageList", pageList);
 		
 		
