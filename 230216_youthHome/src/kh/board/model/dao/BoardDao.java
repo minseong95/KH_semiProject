@@ -90,7 +90,7 @@ public class BoardDao {
 	//페이지 목록 옵션에 따른.. 
 	public ArrayList<BoardVo> selectPage(Connection conn, int pNum, int cnt){
 		ArrayList<BoardVo> selectList = new ArrayList<BoardVo>();
-		String sql = "SELECT idx, WRITER, SUBJECT, CREATEDATE, view_cnt "; 
+		String sql = "SELECT  idx, WRITER, SUBJECT, CREATEDATE, view_cnt "; 
 		       sql += " FROM (SELECT * FROM BOARD_TABLE ORDER BY idx) ";
 		       sql += " WHERE idx BETWEEN ? AND ?";
         PreparedStatement pstmt = null;
@@ -256,6 +256,7 @@ public class BoardDao {
 					}
 				} finally {
 					close(pstmt);
+					
 				}
 				   return result;
 		}

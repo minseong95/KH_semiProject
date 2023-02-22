@@ -30,7 +30,7 @@
 		  <input type="text" class="form-control w-50" name="subject" id="exampleFormControlInput1" >
 		</div>
 		
-		<div class="mb-3 row">
+		<div class="mb-3 row" >
 	    <label for="staticEmail" class="col-sm-2 col-form-label">작성자</label>
 	    <div class="col-sm-10">
 	      <input type="text" readonly class="form-control-plaintext w-25" id="staticEmail" value="${userId}">
