@@ -32,7 +32,7 @@
 		      <th scope="col">공고게시일</th>
 		      <th scope="col">청약신청일</th>
 		      <th scope="col">담당부서/사업자</th>
-		      <th scope="col">북마크</th>
+		      <!-- th scope="col">북마크</th-->
 		    </tr>
 		  </thead>
 		  
@@ -46,7 +46,7 @@
 	 			<td><%=Youth.getAnnDate()%></td>
 	 			<td><%=Youth.getApplyDate()%></td>
 	 			<td><%=Youth.getManager()%></td>
-	 			<td><button type="button" class="btn bookmark btn-secondary">북마크</button></td>
+	 			<!--  td><button type="button" class="btn bookmark btn-secondary">북마크</button></td>-->
  			</tr>
  				<%} %>
  			
