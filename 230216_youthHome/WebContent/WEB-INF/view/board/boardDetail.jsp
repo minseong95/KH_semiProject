@@ -13,25 +13,63 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
-	<div>
-	게시판
-	</div>
+	<ol class="list-group w-25 mt-5 mb-5 mx-4">
+          <li class="list-group-item d-flex justify-content-between align-items-start" >
+            <div class="ms-2 me-auto">
+             <div class="fw-bold text-start">자유게시판</div>
+           </div>
+          </li>
+        </ol>
 
-	<hr>
-	
-	${detail.writer}
-	${detail.context }
-	
-	<hr>
-	
-	
-		<button type="button" class="btn list">목록</button>
-	    <button type="button" class="btn update">수정</button>
-	    <button type="submit" form="deleteForm" class="btn delete">삭제</button>
-	    <form id="deleteForm" action="<%=request.getContextPath()%>/delete?id=<%=request.getAttribute("id")%>" method="post"></form>
-    <!-- 삭제 될까..? -->
-  
+	<div class="container mx-0">
+      
+      <div class="row">
+          <div class="col-md-10">
+              <table class="table table-condensed">
+                  <thead>
+                      <tr >
+                          <th width="10%">제목</th>
+                          <th width="60%">${detail.subject}</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>작성일
+                          </td>
+                          <td>
+                          ${detail.createdate}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>글쓴이
+                          </td>
+                          <td>
+                          ${detail.writer} <span style='float:right'>조회 :${detail.view_cnt}</span>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td colspan="2">
+                              <p>${detail.context }</p>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+              <table class="table table-condensed"></table>
+              
+              <div class="hstack gap-3">
+                <button type="button" class="btn list btn-outline-secondary ms-auto">목록</button>
+			    <button type="button" class="btn update btn-outline-secondary">수정</button>
+			    <button type="submit" form="deleteForm" class="btn delete btn-outline-secondary">삭제</button>
+			    <form id="deleteForm" action="<%=request.getContextPath()%>/delete?id=<%=request.getAttribute("id")%>" method="post"></form>
+              </div>
     
+	
+              
+        </div>
+      </div>
+     
+  </div>   
+
     <script>
     $(".btn.list").on("click",handlerClickBtnList);
     $(".btn.update").on("click",handlerClickBtnUpdate);

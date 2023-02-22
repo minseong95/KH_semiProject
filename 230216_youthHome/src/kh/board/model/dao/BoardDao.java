@@ -55,7 +55,7 @@ public class BoardDao {
 	//게시글 상세 보기
 	public BoardVo boardDetail(Connection conn, int id ){
 		BoardVo vo = new BoardVo();
-		String sql ="SELECT writer, subject, context, createdate ";
+		String sql ="SELECT writer, subject, context, createdate, view_cnt ";
 		       sql += " FROM BOARD_TABLE WHERE idx=?";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -71,6 +71,7 @@ public class BoardDao {
 				vo.setSubject(rs.getString(2));
 				vo.setContext(rs.getString(3));
 				vo.setCreatedate(rs.getString(4));
+				vo.setView_cnt(rs.getInt(5));
 				return vo;
 				
 			}
