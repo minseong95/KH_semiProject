@@ -45,7 +45,7 @@
 	    	<button type="submit" class="btn update btn-primary mb-3">수정하기</button>
 	  	</div>
 	  </form>
-	  
+<jsp:include page="/WEB-INF/view/footer.jsp"></jsp:include> 	  
 	  <script>
  				$(".btn.update").on("click", handlerClickBtnUpdate);
  				
@@ -55,6 +55,7 @@
  				} //수정완료되면 다시 그 게시물로 가게 하기 위해서..
  			
  			</script>
+
 
 </body>
 </html>

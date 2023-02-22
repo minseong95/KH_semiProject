@@ -57,6 +57,7 @@
  				} 
  			
  			</script> <!-- 글 목록 게시판으로 가기 -->
-  
+ 			
+  <jsp:include page="/WEB-INF/view/footer.jsp"></jsp:include> 
 </body>
 </html>

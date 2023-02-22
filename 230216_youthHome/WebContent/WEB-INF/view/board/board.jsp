@@ -24,7 +24,8 @@
           </li>
         </ol>
 		
-		<div class="container m-3" >
+		
+		<div class="container m-3 pb-5" style="position: relative;" >
 			<!-- 페이지 처리 구현 -->
 			<div >
 				<form action="/board"> <!-- url 이게 맞으려나.. // 왜 그냥 submit으로하면 url로 cnt가 안나오지??  --> 
@@ -107,11 +108,17 @@
 		 		</ul>	
 	 			
 	 			
-				<div align="right" class="mb-4">
+				<div align="right" class="mb-5">
 	 				<button type="button" class="btn write btn-secondary">글 작성하기</button>
 	 			</div>
  			</div>
  			
+<footer class="footer mt-1 py-1 bg-light position-absolute bottom-0 w-100" >
+	<div class="container" style="padding-top: 10px; ">
+		<p class="text-center">ⓒ KH semiProject MS All rights reserved</p>
+	</div>
+</footer>
+ 		
  			<script>
  				$(".btn.write").on("click", handlerClickBtnWrite);
  				

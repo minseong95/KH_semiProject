@@ -13,7 +13,7 @@
  
  
  
-	 <div class="container text-center mt-5">
+	 <div class="container text-center mt-5 mb-5">
 	      <div class="row mx-2 ">
 	        <div class="col mx-2 border ">
 	          <h1>청년주택</h1>
@@ -77,6 +77,8 @@
  	}
  
  </script>
+ 
+ <jsp:include page="/WEB-INF/view/footer.jsp"></jsp:include> 
  
 
 </body>

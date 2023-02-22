@@ -48,7 +48,7 @@
                           </td>
                       </tr>
                       <tr>
-                          <td colspan="2" style="height:200px;">
+                          <td colspan="2" style="height:150px;">
                               <p>${detail.context }</p>
                           </td>
                       </tr>
@@ -88,5 +88,6 @@
     
     
     </script>
+    <jsp:include page="/WEB-INF/view/footer.jsp"></jsp:include> 
 </body>
 </html>

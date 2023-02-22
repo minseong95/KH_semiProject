@@ -9,7 +9,7 @@
  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
  <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
-<body>
+<body >
 
 
 	<nav class="navbar bg-light">
@@ -40,7 +40,7 @@
 			<button type="button" class="btn enroll btn-outline-secondary btn-lg " >회원가입</button>
 		</div>
 	</div>
-	
+
 	<script>
 		$(".btn.enroll").on("click", handlerClickBtnEnroll);
 		
@@ -49,7 +49,7 @@
 			location.href="<%=request.getContextPath()%>/enroll";			
 		}
 	</script>
-
+<jsp:include page="/WEB-INF/view/footer.jsp"></jsp:include> 
 
 </body>
 </html>

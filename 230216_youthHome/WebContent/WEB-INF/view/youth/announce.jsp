@@ -80,6 +80,6 @@
 	 			location.href="<%=request.getContextPath()%>/bookmark?no=";
 	 		}
 	 		</script>
-
+<jsp:include page="/WEB-INF/view/footer.jsp"></jsp:include> 
 </body>
 </html>

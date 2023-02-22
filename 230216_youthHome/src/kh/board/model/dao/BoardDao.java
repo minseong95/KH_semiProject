@@ -93,6 +93,10 @@ public class BoardDao {
 		String sql = "SELECT idx, WRITER, SUBJECT, CREATEDATE, view_cnt "; 
 		       sql += " FROM (SELECT * FROM BOARD_TABLE ORDER BY idx) ";
 		       sql += " WHERE idx BETWEEN ? AND ?";
+//		String sql = "select IDX, WRITER, SUBJECT, CREATEDATE, VIEW_CNT from ";
+//				sql +=" (SELECT rownum no, IDX, WRITER, SUBJECT, CONTEXT, CREATEDATE, VIEW_CNT ";
+//				sql += " FROM (SELECT * FROM BOARD_TABLE))";
+//				sql += " WHERE no BETWEEN ? AND ?  order by idx";
         PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
