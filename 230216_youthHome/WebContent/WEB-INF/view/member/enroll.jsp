@@ -58,7 +58,7 @@
 	</form>
 	
 	</section>
-	
+<jsp:include page="/WEB-INF/view/footer.jsp"></jsp:include> 	
 		<!-- 중복체크 -->
 		<script>
 	 <!-- 이벤트를 처리하는 부분이 필요 -->
