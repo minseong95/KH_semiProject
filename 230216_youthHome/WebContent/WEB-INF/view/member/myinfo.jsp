@@ -33,11 +33,31 @@
 	<!-- 단점은 내가 오타나서 안나오는건지 걍 값이 없어서 안나오는건지 알 수 없음 -->
 	<c:if test ="${not empty myinfo }">
 		<div>
-			id: ${myinfo.id}
-			<br>
-			name:${myinfo.name }
-			<br>
-			email:${myinfo.email }
+		
+					    
+			    <table class="table w-25 ms-4">
+			
+			      <tbody>
+			        <tr>
+			          <th scope="row">id</th>
+			          <td>${myinfo.id}</td>
+			
+			        </tr>
+			        <tr>
+			          <th scope="row">name</th>
+			          <td>${myinfo.name }</td>
+			
+			
+			        </tr>
+			        <tr>
+			          <th scope="row">email</th>
+			          <td colspan="2">${myinfo.email }</td>
+			
+			        </tr>
+			      </tbody>
+			    </table> 
+    
+	
 		</div>
 	</c:if>
 </body>
