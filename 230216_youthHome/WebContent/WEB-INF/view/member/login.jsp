@@ -12,11 +12,7 @@
 <body >
 
 
-	<nav class="navbar bg-light">
-	  <div class="container-fluid">
-	    <a class="navbar-brand" href="<%=request.getContextPath()%>/">메인으로</a>
-	  </div>
-	</nav>
+	<jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
 
 <!-- 로그인 -->
 
