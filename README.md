@@ -1,4 +1,18 @@
-# KH_semiProject
+개발 목표 : 청년 주택 사업을 소개하고, 해당 사업에 대해 사용자들이 의견을 주고받을 수 있는 커뮤니티를 만듦.
+
+개발환경 : 
+OS : Microsoft Window 10
+Language : Java11, Servlet/JSP, HTML5
+Web Application Server : Apache Tomcat 9
+DataBase : Oracle 21c Express Edition
+Framework : Bootstrap5, jQuery
+Developer Tool : Eclipse, SQL Developer
+
+수행기간 2023년 02월 16일 ~ 2023년 02월 23일
+
+
+<화면 구성> 
+
 1)메인페이지
 ![image](https://user-images.githubusercontent.com/54164292/223879970-e6c5dfec-d13f-470d-b81c-710e6e102ecc.png)
 
