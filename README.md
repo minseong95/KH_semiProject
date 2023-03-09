@@ -1,7 +1,7 @@
 개발 목표 : 청년 주택 사업을 소개하고, 해당 사업에 대해 사용자들이 의견을 주고받을 수 있는 커뮤니티를 만듦.
 
 개발환경 : 
-OS : Microsoft Window 10
+OS : Microsoft Window 10 <br>
 Language : Java11, Servlet/JSP, HTML5
 Web Application Server : Apache Tomcat 9
 DataBase : Oracle 21c Express Edition
